@@ -1,0 +1,328 @@
+Chris Dixon: My meta-view is that technology waves tend to come in pairs or triples. Fifteen years ago, it was mobile, social, and cloud. I’m always giving this speech to entrepreneurs—these waves tend to reinforce each other. Mobile took computing from hundreds of millions to billions of people. Social was the killer app that hooked them. Cloud was the infrastructure that made it possible. You couldn’t really have one without the others. Back then, people debated which was better, but it turned out they were all better.
+
+David George: And they were all required.
+
+Chris Dixon: They’re all required. I think of AI, crypto, and new devices—probably robotics, self-driving cars, and VR—as the three most interesting things happening now. They complement each other and work together. Crypto is new—this is what my book is about—it’s a new way to architect internet services and build networks. It has different properties, which I argue are beneficial, and it enables things that weren’t possible before.
+
+A lot of people think of crypto as Bitcoin or meme coins. That’s fundamentally not what it is to me or to the smart people working in the space. There are many ways it intersects with AI.
+
+The first lightweight way, which we’ve invested a lot in, is using this new architecture to build AI systems. One of the core questions we’ve discussed at this firm is the future of AI—will it be controlled by a small set of companies or by a broad community? The obvious first question there is: Is it open source?
+
+David George: Yes.
+
+Chris Dixon: It has shocked me how closed-source the AI world has become. Ten years ago, everything was open and published in papers. Then it all shut down and became closed. They said this was for safety reasons, but I think it was also very good for their defensibility.
+
+Thankfully, there are projects like Llama, Flux, and Mistral that are open source. But I worry that’s a little fragile because many don’t release their model weights. Is it really open? Some of it is, but the data pipeline isn’t. Is it really reproducible? They could change it tomorrow. These models improve every month, and if they don’t push the frontier, I don’t know.
+
+David George: It’s very heavily dependent on one large company.
+
+How crypto and AI interact
+Chris Dixon: One of the things we’ve invested in is a stack of internet services built for the AI stack but as open services at a different layer. As an example, there’s a project called Jensen, which is building a crowdsourced compute layer. As a startup, you can submit a job that goes beyond the compute you control, and it gets distributed across a network—kind of Airbnb-style—to people with excess compute. The network manages supply and demand.
+
+That’s the economic ledger.
+
+Yeah, that’s one example. Another is Story Protocol, which is a new way to register intellectual property. You can create an image, video, or piece of music and register it on a blockchain, which keeps a record of the media and its rights. It uses existing copyright law—the blockchain record mirrors a legal agreement crafted to work internationally. Anyone can come along and, as long as they abide by your terms, use the content. You might say, “You can use this, you can remix it, you can create derivative works, but any revenue you make, you have to pay me 10%.”
+
+David George: …or whatever.
+
+Chris Dixon: You set the terms, creating an open marketplace. Right now, you have to contact a company and try to negotiate a BD deal, which leads to situations where people either steal content, don’t use it, or only large-scale companies can make deals. OpenAI paid Shutterstock $100M, but that’s just for high-end companies. This creates a broad, democratic resource where small creators can set their own terms.
+
+A recurring theme in blockchain is composability. I have a chapter in my book on this—it’s a powerful force and the core reason for open-source software’s success. Open-source software has been the most successful open computing movement in the last 80 years. Linux went from 0% market share in the ’90s to over 90% today because of composability. People contribute small pieces to a system, making it better—like Wikipedia as a collective knowledge system.
+
+Story Protocol creates the same kind of Lego brick effect for media. Someone creates a character, someone else creates another, someone else remixes them, and AI tools allow for generative AI storytelling. You can create a new superhero universe using existing Lego bricks, and as long as the money flows back, it works.
+
+David George: The incentives are aligned because the money flows back.
+
+Chris Dixon: It’s a great vision—it allows people to embrace these new tools while providing an economic model for creative people. A recurring theme in our investing is figuring out economic models for creative people in an AI-driven world. The goal isn’t to stop technological progress but to lean into it and rethink these models. That’s the most exciting area of this intersection.
+
+David George: You go from social networking companies keeping 100% of the revenue when creators make content to a system where creators set their own pricing. Ideally, composability enables more creativity on top of that.
+
+Chris Dixon: That’s right.
+
+David George: Because of the economic incentive alignment.
+
+Chris Dixon: We’re seeing interesting experiments with crowdsourced model evaluation. Think of the data side—AI needs more data. Crypto is a breakthrough in designing new incentive systems. The question is, how do we use these systems to gather more data for AI? Data can be an input, model evaluation, or something else. It’s similar to what companies like Scale AI do, but in a crowdsourced rather than centralized way.
+
+A project we invested in, co-founded by Sam Altman, is WorldCoin. The thesis is that in a world where AI can replicate humans and content, we need a way to prove someone is human. The best way to do that is cryptographically using a blockchain.
+
+Their incentive system allows people to sign up. Originally, they used an orb to scan irises, which some found controversial. Now, they offer other methods, including passports. The idea is that once you prove your identity, you receive cryptographic proof on a blockchain, which can be used for various services.
+
+A simple example is CAPTCHAs. Today, you solve puzzles that have become so complex they may no longer be AI-proof—or even human-proof. Instead of clunky fraud prevention systems, you could use cryptographic verification. You receive a cryptographic code, proving you’re human, and then layer additional verifications on top.
+
+That’s another interesting intersection.
+
+There are many opportunities at the infrastructure layer—taking centralized AI systems and decentralizing them in terms of code and services. There are also new possibilities, like machine-to-machine payments. Then there are the more ambitious ideas, which I find the most exciting—new business models for an AI-powered world, particularly for creative people.
+
+Breaking the economic pact of the internet
+David George: One of the things you pointed out to me right after the ChatGPT moment was, “Hey, we have the potential for a break in the pact of the internet,” which I think is a fascinating problem.
+
+Chris Dixon: There’s a chapter on this in the book toward the end. I call it a new covenant. If you think about the incentive system, one of the main reasons the internet succeeded is that it had a very clever incentive system. How do you get 5B people to opt into a system without a central authority telling them to? It’s because of the incentives of the internet.
+
+Specifically, over the last 20 years, an economic covenant has emerged between platforms—specifically social networks and search engines—and the people creating websites that those platforms link to. If you’re a travel website, a recipe site, or an artist with illustrations, there’s an implicit covenant with Google. You allow Google to crawl your content, index it, and show snippets in search results in exchange for traffic. That’s how the internet evolved.
+
+David George: And it’s mutually beneficial.
+
+Chris Dixon: Mutually beneficial. Occasionally, that covenant has been breached. Google has done something called one-boxing, where they take content and display it directly. I was on the board of Stack Overflow, and they did this—showing answers directly in search results instead of driving traffic to the site. They’ve done it with Wikipedia, lyrics sites, Yelp, and travel sites.
+
+David George: Yeah, they did it with Yelp.
+
+Chris Dixon: And people get upset. With Yelp, they promoted their own content over others. These issues existed, but the system still worked. Now, in an AI-driven world, if chatbots can generate an illustration or a recipe directly, that may be a better user experience. I’m not against it—it’s probably better for users. But it breaks the covenant. These systems were trained on data that was put on the internet under the prior covenant.
+
+David George: Under the premise that creators would get traffic.
+
+Chris Dixon: That’s right.
+
+David George: And they could monetize it.
+
+Chris Dixon: Exactly. That was the premise and the promise. Now, we have a new system that likely won’t send traffic. If these AI models provide answers directly, why would users click through? We’re headed toward a world with three to five major AI systems where users go to their websites for answers, bypassing the billion other websites that previously received traffic. The question is, what happens to those sites?
+
+This is something I’ve been thinking about, and I’m surprised more people aren’t discussing it. I feel like I’m screaming into the abyss. AI companies took the data, and there will be copyright lawsuits, but beyond that…
+
+David George: They’ve done some data deals.
+
+Chris Dixon: Some, but not many. Even beyond the societal impact and the small businesses affected, what happens to the internet? If the internet becomes five companies, it starts resembling broadcast TV in the 1970s, with only four channels. Is that the world we want? Is that a world that supports startups, innovation, and creativity?
+
+David George: There won’t be a long tail of websites—the next generation of smaller sites.
+
+Chris Dixon: Exactly. How do new websites break out? How do new things get created? I worry that we haven’t thought this through. I don’t claim to have the only answer, and it doesn’t have to be a crypto-based solution—I realize that’s controversial to some. But step one is recognizing that this breaks the internet’s incentives. Step two is asking whether that’s a good thing. I don’t think so. Step three is figuring out the right answer. Should we create new incentives?
+
+This is why a lot of my focus has been on investing in and thinking about new incentive systems, like Story Protocol. We need to explore ways to layer new economic structures on top of existing systems.
+
+From mobile, social, and cloud to crypto, AI, and hardware
+David George: One of the things you’ve talked about is this trifecta of technology products that have emerged at the same time—generative AI, crypto, and new hardware platforms. How do you see these three coming together?
+
+Chris Dixon: The analogy, of course, is to mobile, social, and cloud—the last wave—where they reinforced each other. We’re already seeing some of this today.
+
+New devices like AR and VR glasses use a lot of AI, leading to HER-style interactions. Self-driving cars, Tesla’s robotics efforts, and other humanoid robotics projects are just scratching the surface of real-world AI—deploying it in physical environments and enabling new applications.
+
+On the crypto side, one area I’m excited about is DPIN—decentralized physical infrastructure. The most prominent example is Helium, a community-owned, crowdsourced telecom network that competes with Verizon and AT&T. Helium created an incentive system where anyone can set up a node at home, contributing to the network. These nodes function as wireless transmitters, and hundreds of thousands of people across the country have installed them.
+
+Now, Helium offers a cellular service that is significantly cheaper than Verizon’s—$20 per month instead of $70—because much of the network runs on this community-built infrastructure rather than requiring tens of billions of dollars to construct.
+
+Using crypto to bootstrap network effects
+Chris Dixon: What’s interesting is how they use crypto. Crypto excels at creating incentive systems. Traditionally, the hardest part of building a network is the bootstrap phase.
+
+Once a network reaches critical mass, its value is clear. If I can sign up for a cellular network and use it anywhere in the country, I’ll pay for that. But early on, when only 10 houses have access, it’s not attractive. The same challenge applies to dating sites—if there are only 10 people, it’s not useful. If there are millions, it is.
+
+This is the classic problem of building networks: how to overcome the early phase when network effects are weak. Crypto is the perfect complement—it provides incentives to help build a network in its early stages.
+
+Many of the world’s most interesting networks are physical. There are crypto projects for climate and weather modeling, mapping self-driving data, electric car charging, cellular networking, and energy metric monitoring. There’s also decentralized science, which integrates crypto with scientific applications.
+
+A simple way to think about it: anywhere you need to build a network but face challenges in the early stages, crypto can be a powerful tool for bootstrapping.
+
+If I had to pick one area where crypto, AI, and hardware intersect in a meaningful way, it would be physical networks and robotics—particularly where they connect with data collection and broader AI-driven themes.
+
+Is AI frosting or sugar?
+David George: Marc gave me a framework I like: Is AI frosting or sugar? Is it the core ingredient? If AI is just frosting, incumbents will win because they can slap a chatbot onto their existing product and leverage distribution, selling power, and relationships. But if AI is a fundamental ingredient, you can’t just add it in—you have to build from scratch, which favors newcomers. We haven’t yet seen a clear answer. The more cellular or skeuomorphic something is, the more it favors incumbents.
+
+Chris Dixon: Another way to frame Marc’s thinking is through Clay Christensen’s view: Is it disruptive or sustaining? People often misunderstand Christensen’s concept—disruptive doesn’t just mean new. It means misaligned with the incumbent’s business model. That’s what makes it difficult for even smart incumbents to react, because their best customers aren’t asking for it. That somewhat overlaps with Marc’s frosting-versus-core-ingredient idea.
+
+David George: It could also mean a fundamentally different business model.
+
+Chris Dixon: Exactly. Instead of traditional databases, it could be a radical new architecture that eliminates databases altogether. Something that cannibalizes the incumbent model makes it organizationally and economically harder for them to integrate.
+
+David George: We haven’t seen that yet. We’ve seen discussions about how pricing relates to this.
+
+Chris Dixon: That’s the second piece. There’s a framework I like to use to think about how these things roll out, but first, let’s talk about consumer AI. Right now, I don’t think we’re seeing network-effect businesses in consumer AI. As successful as Claude and ChatGPT are, they don’t seem to have strong network effects. Their switching costs are relatively low.
+
+David George: We actually thought the killer feature might be a data network effect.
+
+Chris Dixon: There is a data network effect—people respond, and reinforcement learning loops emerge.
+
+David George: But it turns out humans are relatively uninteresting in that sense.
+
+Chris Dixon: Exactly. Most of what people do doesn’t generate meaningful learning at the individual level.
+
+David George: Data network effects have been talked about for 20 years, but they rarely materialize.
+
+Chris Dixon: I don’t think they apply here either.
+
+David George: We thought they might, but they don’t.
+
+Chris Dixon: The risk for these AI companies is competition. Brand matters—ChatGPT has a strong brand—but the question is how they avoid steady-state price competition leading to a race to the bottom. They will be important businesses, but will they be dominant?
+
+What’s the opportunity for new startups? In AI consumer ventures, we see apps like face-enhancement tools shoot up the charts, but then TikTok copies them. Without network effects, these businesses struggle to sustain their advantage.
+
+David George: No network effects.
+
+Chris Dixon: Exactly.
+
+Come for the tool, stay for the network
+Chris Dixon: There’s a strategy I like to talk about called “come for the tool, stay for the network.” The idea is that you can use something like a face-enhancement app as a hook to bring people into a new social network. However, this feels extremely difficult today given the scale and power of incumbents.
+
+That idea also intersects with crypto. In my book, I argue that crypto is a new way to build networks. You have AI, which enables fascinating use cases but lacks network effects. Then you have crypto, which is all about network effects. The question is: Are there interesting ways to combine them?
+
+Skeuomorphic vs. native technologies
+Chris Dixon: Before getting into that, it’s important to talk about how major technologies roll out in stages. One way to think about technology is that it can do one of two things:
+
+Improve old processes.
+Enable entirely new things that weren’t possible before.
+The first category is called skeuomorphic—a term Steve Jobs used to describe designs that mimic previous eras to make new products more familiar. The second is native apps, which enable something fundamentally new.
+
+There’s also a third stage: second-order effects—the broader changes enabled by new technology. For example, after cars were invented, we built highways, suburbs, and trucking infrastructure. A famous idea in science fiction is that good writers predict the car, but great writers predict the traffic jam.
+
+David George: Of course.
+
+Chris Dixon: Second-order effects matter. Bitcoin couldn’t have existed before social networking. Thirty years ago, if you told someone that gatekeepers would disappear and people would control their own media, they wouldn’t have predicted digital currencies emerging from that.
+
+David George: There would have been no way to create communities around them.
+
+Chris Dixon: Exactly. It would have been a New York Times article dismissing the idea, and that would have been the end of it. There would have been no space for people to congregate, discuss, and build momentum. Many token communities resemble religious movements in that they need places to gather. Now they have that, which creates all kinds of second-order effects—including in politics and society at large.
+
+For AI, the first stage is the skeuomorphic phase. This is where we see AI replacing existing jobs, like customer service roles. Instead of a human in a call center, you have an AI-powered chatbot. It’s a one-to-one replacement—cheaper, more systematic, and disruptive to jobs. Hopefully, it will also create more and better jobs, but this is the first, obvious phase.
+
+People get excited about AI’s potential because they see this phase affecting tens of millions of jobs. Many roles in the knowledge economy—including ours, where we spend all day typing emails—could be impacted.
+
+David George: That’s the joke—we speculate about it, but we’re part of that group too.
+
+Chris Dixon: Phase one is skeuomorphic, but it can last 20 years. That could be what happens with AI for the next two decades.
+
+The next phase is the native phase, which is what excites me more. Looking at the internet as an analogy, the ’90s were the skeuomorphic phase. Back then, businesses simply put offline experiences—magazines, catalogs—onto the internet. Buying something online was more convenient than using a paper catalog, but fundamentally, it wasn’t new.
+
+The native phase began in the 2000s with social networking—an entirely new behavior with no offline equivalent. Facebook started as a digital yearbook, but as it evolved into the News Feed and beyond, it became something entirely new.
+
+I go into this in detail in my book, but that transformation took a decade or more—from Mosaic in 1993 to YouTube and Facebook around 2005.
+
+AI is at a similar inflection point.
+
+David George: And with business models that didn’t exist before.
+
+Chris Dixon: Exactly. The business models and entire concepts were new. Early Facebook had loose analogs, like yearbooks, but as it evolved, it became something unimaginable before.
+
+One of the most exciting aspects of the native phase is that it enables new products and media forms.
+
+When photography first emerged, cultural critics worried about its impact on art. Walter Benjamin’s famous essay, The Work of Art in the Age of Mechanical Reproduction, questioned what would happen to artists when anyone could take a photograph.
+
+Today, similar concerns exist about generative AI. If AI can create entire movies, what happens to traditional filmmaking?
+
+David George: We’re already seeing that with images.
+
+AI as the creative substrate of our era
+Chris Dixon: Images are there, and video is probably coming soon. What happened with photography was twofold. Fine art moved toward abstraction, away from photography, leaning into what made it unique—giving rise to movements like Cubism. On the other side, photography enabled the rise of film. Someone recognized that while machines could replace photography, they could also create a brand-new art form that never existed before. Animation had some of this, but film became a sophisticated new medium.
+
+Film became the native media form of the age of mechanical reproduction.
+
+David George: That’s a fascinating analogy.
+
+Chris Dixon: With generative AI, the negative perspective—common in the art community and on Twitter—is that it’s just a cheap replacement for human creativity. The positive perspective is that it’s a base layer, similar to how film became a base layer. AI provides a new canvas for human creativity, enabling new art forms. I don’t know exactly what those are—maybe virtual worlds, games, or new types of films.
+
+David George: They may intersect with entirely new ways to consume media.
+
+Chris Dixon: Yes, maybe through new interfaces. That’s what excites me about native media and apps—they emerge from creative minds in unexpected ways. Watching previous waves of technology unfold, it’s clear that brilliant creators drive innovation. That’s the phase I’m looking forward to: not just using AI to make existing things cheaper, but pushing the frontier to create things that were never possible before.
+
+David George: Entirely.
+
+Chris Dixon: Just as film did. Looking back, most would agree that photography unlocked more opportunities for creative people than it eliminated.
+
+David George: More than if it had never existed.
+
+Chris Dixon: That’s the hope in this phase. The media example is one area, but the same applies to consumer applications, social networking, and productivity. The exciting part will be not just replacing what exists today, but inventing entirely new behaviors and possibilities.
+
+The third phase is second-order effects. When you create something new, broader changes follow. Social networking is a good example. It rose in the 2000s, and by the 2008 and 2012 Obama elections, it had reached a tipping point. News articles at the time noted how different it was—how social media had shifted from secondary to primary.
+
+Then we started seeing unexpected societal shifts. Movements like Trump’s populism surprised many. Behavior changed in ways we still don’t fully understand, and we’re in a state of disequilibrium.
+
+Social media’s second-order effects are still playing out. Crypto and other emerging movements today are arguably second-order effects of social media. These effects could unfold over the next 20 to 30 years. That will likely be phase three of the AI revolution.
+
+David George: And thinking about the timelines…
+
+Chris Dixon: It will probably take a long time. Historically, I’ve been overly optimistic—I’ll say, “We’re done with the skeuomorphic phase of AI, now we move to the native phase.” But in reality, each phase probably takes a decade.
+
+Balancing supply and demand in AI
+David George: One of the interesting things you said about these distinct phases is that the internet took a long time, partially because you had to build a network.
+
+Chris Dixon: Yeah, it was a physical network.
+
+David George: A supply and demand issue—physically laying cables and then wireless infrastructure. With AI, you have to build large clusters of compute and GPUs, but the constraining factor for moving from the skeuomorphic phase to the native phase isn’t necessarily capabilities. It’s human creativity and ideas.
+
+Chris Dixon: I think so. The bottleneck will be humans and policy regulation, which are closely connected. It’s both a supply and demand issue, but probably more on the demand side.
+
+On the supply side, you need people to come up with creative applications. The startup world is more mature now than when I entered it. There were 10 venture firms then; now, there are thousands. The ecosystem is more developed—there are more startups, better advice, and more access to funding.
+
+David George: It’s a more popular path for smart people now.
+
+Chris Dixon: Yes, places like Y Combinator have helped establish startups as a viable career path. Fifteen years ago, people didn’t consider startups as an option. Now, there are established mentors, funding sources, and a body of good advice. The standard advice used to be terrible—now, it’s much better. If you’re smart and socially adept, you can integrate into the startup world relatively quickly in San Francisco.
+
+Silicon Valley has become highly efficient at directing capital and energy toward problems.
+
+On the demand side, the challenge is changing organizational and human behavior. For example, how long will it take Hollywood to adopt AI?
+
+David George: That’s specific.
+
+Chris Dixon: When I wrote my book, I wanted to use AI to generate an audiobook in my own voice. Both the publisher and Audible banned AI entirely. Part of it is union resistance and broader industry pushback.
+
+David George: The capabilities exist to do it.
+
+Chris Dixon: Exactly. Marc Andreessen wrote a great blog post asking, “How do I know they’re going to ban AI in medicine?” Because they already have. Many areas AI will impact are highly regulated.
+
+Take the Hollywood generative AI example—adopting AI might require laying off unionized workers, which companies may resist. Maybe fresh upstarts in other countries will create AI-native movie studios, but that will take time.
+
+The right approach is probably to integrate AI with existing Hollywood talent, not replace it. There are many highly skilled people in the industry. But how long will that cultural shift take? It may require an entirely new generation.
+
+That’s what I mean by the demand side—changing workflows, using AI assistants regularly. It’s unclear how long that will take.
+
+David George: Having a co-pilot for everything you do—it feels like…
+
+Chris Dixon: Yes, and maybe that can be solved with interfaces. Then there’s the policy side. The resistance I’m describing is already becoming enshrined in law. This is playing out at multiple levels—in courts, state legislatures, and bills like California’s AI bill. There are also ongoing lawsuits around copyright.
+
+I believe this will ultimately be resolved in Congress. AI is such a major issue, affecting tens of millions of jobs. It’s beyond something that will be left entirely to free markets.
+
+David George: It won’t just play out through court decisions.
+
+Chris Dixon: Exactly. The copyright issue is a good example. Right now, the fundamental legal question is: When an AI system is trained on a piece of data, is it copying that data or learning from it?
+
+David George: That’s a fundamental question across different media right now.
+
+Chris Dixon: That’s right.
+
+What drives consumer adoption of AI?
+Chris Dixon: Five years from now, a federal judge could decide that philosophical question, or more likely, there will be congressional legislation—some compromise between media and tech industries—that creates incentives for creators while allowing AI systems to exist. That will take a long time to play out.
+
+When will AI be allowed in medicine and finance? Regulated industries make up about 70% of our economy. On the flip side, Waymo’s progress is impressive.
+
+David George: It turns out it’s 7 to 10 times safer than a human driver, with millions of miles of data to prove it.
+
+Chris Dixon: Maybe that’s the playbook for broader AI adoption.
+
+What is the ideal future state of the internet?
+David George: What does an ideal internet look like? Near-zero cost of creation and distribution, transparent ownership, governance—what does that future look like?
+
+Chris Dixon: We’re at a crossroads. The original vision of the internet, from the ‘80s and ‘90s, was one that was community-owned and governed, where most of the economic benefits flowed to the edges of the network—not to the intermediaries.
+
+Think of the internet as a network with money flowing through it. In the ‘90s, money flowed to small businesses, innovators, and entrepreneurs. Today, it mostly flows to the middle.
+
+David George: Yeah, $200M in revenue from social networks…
+
+Chris Dixon: The top five internet companies now control more than half of the market cap—possibly more. Money is consolidating at the center.
+
+There are two critical issues here: power and money. One of the core arguments in my book is that these are determined by architecture. The first sentence of the book is: “Your architecture is your destiny.” The architecture you choose dictates control and financial distribution.
+
+We’re nearing a point of no return, where five companies control the internet. These networks have reached massive scale and are now focused on keeping users trapped within their platforms.
+
+David George: They’ve captured all the users, so now they focus on increasing time spent.
+
+Chris Dixon: That’s right. They kicked away the ladder—they climbed it, then removed it for others.
+
+This is why our firm believes so strongly in building new internet services with new architectures using blockchains. It’s crucial for the future of small tech, or little tech, along with open-source AI.
+
+Startups today must pay a giant tax to incumbents just to build competitive services. That prevents them from threatening those incumbents.
+
+David George: We’ve seen this before—platform risk, right? Like when Zynga was built on top of Facebook, and then…
+
+Chris Dixon: Exactly—platform risk means you’re building on quicksand.
+
+Startups need access to distribution, networks, and modern software. Open-source software is critical. These questions will shape the future, which is why we’ve invested so much time and money in them.
+
+The regulatory side is also key. What policies will encourage competition and innovation for little tech? Raising awareness of these issues is important so we don’t back ourselves into a future controlled by four companies.
+
+Much of today’s progress comes from past startup innovation. If we let a few companies consolidate control, we risk losing that innovation.
+
+David George: I’m optimistic. The bright side is that through your work and what we’ve done at our firm, little tech is gaining recognition. The importance of new architectures, new infrastructure, and open source is becoming more widely understood.
+
+Chris Dixon: Yeah, great.
+
+David George: This was awesome. Thanks for being here.
+
+Chris Dixon: Thanks for having me.
+
+David George: I always love talking to you

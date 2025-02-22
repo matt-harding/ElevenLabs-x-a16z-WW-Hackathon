@@ -41,7 +41,7 @@ def check_relevancy_openai(text: str):
 
     try:
         response = openai.completions.create(
-            model="gpt-3.5-turbo",
+            model="o3-mini",
             messages=[
                 {
                     "role": "system",
