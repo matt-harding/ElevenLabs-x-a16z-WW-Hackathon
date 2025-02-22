@@ -16,7 +16,7 @@ openai.api_key = OPENAI_API_KEY
 
 # Initialize local Whisper model (choose whichever model you prefer)
 # For CPU usage, pass device="cpu", e.g. WhisperModel("small", device="cpu")
-whisper_model = WhisperModel("medium", device="cpu", compute_type="int8")
+# whisper_model = WhisperModel("medium", device="cpu", compute_type="int8")
 
 
 def transcribe_audio_with_whisper(audio_path: str) -> str:
@@ -24,10 +24,11 @@ def transcribe_audio_with_whisper(audio_path: str) -> str:
     Uses the local faster-whisper model to transcribe an audio file.
     Returns the final transcript as a string.
     """
-    segments, info = whisper_model.transcribe(audio_path, beam_size=5)
-    parts = [segment.text for segment in segments]
-    transcript = " ".join(parts)
-    return transcript.strip()
+    # segments, info = whisper_model.transcribe(audio_path, beam_size=5)
+    # parts = [segment.text for segment in segments]
+    # transcript = " ".join(parts)
+    # return transcript.strip()
+    return "Hello"
 
 
 def check_relevancy_openai(text: str):

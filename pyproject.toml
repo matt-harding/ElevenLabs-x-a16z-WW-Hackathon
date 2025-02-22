@@ -1,17 +1,20 @@
-[project]
-name = "elevenlabs-x-a16z-ww-hackathon"
+[tool.poetry]
+name = "ElevenLabs-x-a16z-WW-Hackathon"
 version = "0.1.0"
-description = ""
-authors = [
-    {name = "Sergio",email = "speschiera@gmail.com"}
-]
-readme = "README.md"
-requires-python = ">=3.12"
-dependencies = [
-    "openai (>=1.63.2,<2.0.0)"
-]
+description = "Local STT with faster-whisper, OpenAI relevancy, Perplexity search"
+authors = ["You <you@example.com>"]
 
+[tool.poetry.dependencies]
+python = "^3.10"
+Flask = "^2.3.2"
+python-dotenv = "^1.0.1"
+pandas = "^2.0.2"
+numpy = "^1.26.4"
+elevenlabs = "^1.51.0"
+requests = "^2.32.3"
+openai = "^1.12.0"
+faster-whisper = "^0.7.1"  # For local STT
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
