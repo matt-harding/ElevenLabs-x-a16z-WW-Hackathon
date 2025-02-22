@@ -6,6 +6,7 @@ from flask import Flask, request, jsonify, render_template
 from dotenv import load_dotenv
 from faster_whisper import WhisperModel
 
+# Load environment variables (OPENAI_API_KEY, PERPLEXITY_API_KEY, etc.)
 load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -14,9 +15,8 @@ PERPLEXITY_API_KEY = os.getenv("PERPLEXITY_API_KEY")
 app = Flask(__name__)
 openai.api_key = OPENAI_API_KEY
 
-# Initialize local Whisper model (choose whichever model you prefer)
-# For CPU usage, pass device="cpu", e.g. WhisperModel("small", device="cpu")
-# whisper_model = WhisperModel("medium", device="cpu", compute_type="int8")
+# Example: Initialize local Whisper model (uncomment and adjust as needed)
+# whisper_model = WhisperModel("small", device="cpu", compute_type="int8")
 
 
 def transcribe_audio_with_whisper(audio_path: str) -> str:
@@ -24,24 +24,28 @@ def transcribe_audio_with_whisper(audio_path: str) -> str:
     Uses the local faster-whisper model to transcribe an audio file.
     Returns the final transcript as a string.
     """
+    # Uncomment and adapt as needed if you're using whisper_model
     # segments, info = whisper_model.transcribe(audio_path, beam_size=5)
     # parts = [segment.text for segment in segments]
     # transcript = " ".join(parts)
     # return transcript.strip()
+
+    # For testing/demo purposes, returning static text
     return "Last month, Meta which owns popular social media platforms Facebook and Instagram, sent a stern warning to employees that it was planning to cut roughly 3,600 jobs."
 
 
 def check_relevancy_openai(text: str):
     """
-    Uses OpenAI to decide if 'text' is interesting for further investigation.
+    Uses OpenAI Chat API to decide if 'text' is relevant enough to investigate further.
     Returns (bool is_relevant, str short_query).
     """
     if not text.strip():
         return False, ""
 
     try:
-        response = openai.completions.create(
-            model="o3-mini",
+        # Must use ChatCompletion for chat-based models (like 'o3-mini' or 'gpt-3.5-turbo')
+        response = openai.ChatCompletion.create(
+            model="o3-mini",  # Replace with a valid model name in your OpenAI account
             messages=[
                 {
                     "role": "system",
@@ -57,16 +61,22 @@ def check_relevancy_openai(text: str):
                 }
             ]
         )
-        content = response['choices'][0]['message']['content'].strip()  # Adjusted for new API structure
-        print('CHECKING RELEVANCY')
+
+        # Extract the AI's response content
+        content = response.choices[0].message.content.strip()
+        print("CHECKING RELEVANCY")
         print(content)
+
+        # Simple logic: if it starts with "NOT RELEVANT", we consider it not relevant
         if content.lower().startswith("not relevant"):
             return False, ""
         else:
             return True, content
+
     except Exception as e:
         print("OpenAI relevancy check error:", e)
         return False, ""
+
 
 def call_perplexity(query: str):
     """
@@ -82,13 +92,14 @@ def call_perplexity(query: str):
     messages = [
         {
             "role": "system",
-            "content": "You retrieve relevant resources in a style similar to Perplexity's website."
+            "content": "You a friend assistant that retrieves relevant resources to the user's query."
         },
         {
             "role": "user",
             "content": query
         }
     ]
+
     try:
         response = client.chat.completions.create(
             model="sonar-pro",
@@ -102,6 +113,7 @@ def call_perplexity(query: str):
 
 @app.route("/")
 def index():
+    # Renders an index.html template (make sure you have this in your templates folder)
     return render_template("index.html")
 
 
@@ -131,11 +143,11 @@ def transcribe_audio():
         print("Error transcribing audio:", e)
         return jsonify({"error": "Transcription failed"}), 500
     finally:
-        # Cleanup
+        # Cleanup temp file
         if os.path.exists(audio_path):
             os.remove(audio_path)
 
-    # Check relevancy
+    # Check relevancy with OpenAI
     is_relevant, suggested_query = check_relevancy_openai(transcript)
 
     return jsonify({
@@ -147,14 +159,15 @@ def transcribe_audio():
 
 @app.route("/api/perplexity-search", methods=["POST"])
 def perplexity_search():
-    print('PERPLIXITY!!!')
+    # Example route to call the Perplexity-like endpoint
+    print("PERPLEXITY endpoint called.")
     data = request.json
     query = data.get("query", "").strip()
     if not query:
         return jsonify({"error": "Empty query"}), 400
 
     result = call_perplexity(query)
-    print('RESULT')
+    print("RESULT FROM PERPLEXITY:")
     print(result)
     if result is None:
         return jsonify({"error": "Perplexity error or missing key"}), 500
@@ -163,4 +176,5 @@ def perplexity_search():
 
 
 if __name__ == "__main__":
+    # Run Flask app
     app.run(debug=True, port=5000)
