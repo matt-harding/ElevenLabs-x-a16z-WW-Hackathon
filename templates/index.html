@@ -3,15 +3,13 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Browser STT + OpenAI + Perplexity (3s Chunks)</title>
+    <title>Fast &amp; Efficient 2s Chunk Demo</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body>
     <div id="container">
-        <h1>Podcaster Agent</h1>
-        <elevenlabs-convai agent-id="9PwbyuJAZ1qOl5IyA2B9"></elevenlabs-convai>
-        <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
+        <h1>Fast &amp; Efficient Long-Running Transcript</h1>
 
         <div id="stt-controls">
             <button id="startSpeechBtn">Start Speech</button>
@@ -23,9 +21,8 @@
             <div id="transcripts"></div>
         </div>
 
-        <!-- We'll show relevant Perplexity results here as they come in -->
         <div id="analysis-container">
-            <h3>Analysis & Results:</h3>
+            <h3>Analysis &amp; Results (every 2 seconds):</h3>
             <div id="results"></div>
         </div>
     </div>
