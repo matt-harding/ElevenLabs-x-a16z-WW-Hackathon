@@ -3,107 +3,107 @@
 import re
 import spacy
 import pandas as pd
+from collections import defaultdict
+
+def extract_topics(text, nlp, top_n=5):
+    """
+    Given a chunk of text and a spaCy model, return a naive list of potential topics.
+    This approach:
+      - Parses text with spaCy
+      - Collects frequent NOUN and PROPN lemmas (excluding stop words)
+      - Returns the top N most frequent
+    """
+    doc = nlp(text)
+    freq = defaultdict(int)
+
+    for token in doc:
+        # Check if it's a noun (NOUN or PROPN), and not a stopword or punctuation
+        if token.pos_ in ("NOUN", "PROPN") and not token.is_stop and not token.is_punct:
+            # Use the lowercase lemma for frequency counting
+            freq[token.lemma_.lower()] += 1
+
+    # Sort by descending frequency
+    sorted_terms = sorted(freq.items(), key=lambda x: x[1], reverse=True)
+
+    # Return the top_n lemmas as potential topics
+    return [term for term, count in sorted_terms[:top_n]]
 
 def main():
     """
-    Reads a transcript from 'transcript.txt', line-by-line,
-    and converts it into a DataFrame manually (one line per row).
-    Then identifies lines for Chris Dixon and David George,
-    accumulates their text, and uses spaCy to extract named entities.
+    Reads 'transcript.txt' line by line.
+    Detects any speaker name generically by matching "<Speaker>: <Text>".
+    Groups subsequent lines under the same speaker until the next speaker appears.
+    Extracts naive topics for each speaker's chunk of text using spaCy.
     """
 
-    # Load the small English model from spaCy
-    # (Ensure you've installed it: python -m spacy download en_core_web_sm)
+    # 1. Load a spaCy model for English
     nlp = spacy.load("en_core_web_sm")
 
-    # 1. Manually read transcript.txt and store lines in a list
-    #    This bypasses the CSV parser limitations on "\n".
+    # 2. Manually read transcript.txt and store lines in a list
     with open("transcript.txt", "r", encoding="utf-8") as f:
         lines = f.read().splitlines()
 
-    # 2. Create a DataFrame with a single column "line"
-    df = pd.DataFrame(lines, columns=["line"])
-    print("=== RAW DATAFRAME ===")
-    print(df)
-    print()
-
-    # 3. Prepare data structures to store speaker text
-    speakers = {
-        "Chris Dixon": [],
-        "David George": [],
-        "Unattributed": []  # Add storage for unattributed lines
-    }
-
-    # We'll keep track of the current speaker as we move through lines
+    # 3. Create a structure to hold each "turn" = one chunk of text from a single speaker
+    #    We'll store a list of dicts, each with {"speaker": str, "lines": [str, str, ...]}
+    turns = []
     current_speaker = None
+    current_lines = []
 
-    # 4. Regex to detect lines that explicitly start with either speaker
-    #    Examples: "Chris Dixon: text...", "CHRIS DIXON - text", etc.
-    speaker_pattern = re.compile(
-        r'^\s*(chris\s+dixon|david\s+george)\s*[:>\-–—]?\s*(.*)',
-        re.IGNORECASE
-    )
+    # Regex to match: SomeSpeakerName: text...
+    speaker_pattern = re.compile(r'^(.+?):\s*(.*)')
 
-    # 5. Iterate through each line in the dataframe
-    for _, row in df.iterrows():
-        text_line = row["line"].strip()
+    # 4. Build the list of speaker turns
+    for line in lines:
+        line = line.strip()
+        match = speaker_pattern.match(line)
 
-        # Check if the line explicitly starts with a speaker name
-        match = speaker_pattern.match(text_line)
         if match:
-            # If there's a match, this line defines a new current speaker
-            speaker_name = match.group(1).title()  # Normalize to title case
-            if "chris" in speaker_name.lower():
-                current_speaker = "Chris Dixon"
-            else:
-                current_speaker = "David George"
+            # Found a new speaker, so first save the previous chunk (if any)
+            if current_speaker is not None:
+                turns.append({
+                    "speaker": current_speaker,
+                    "text": " ".join(current_lines)
+                })
 
-            # The rest of the text after the delimiter
-            speaker_text = match.group(2).strip()
-            # Accumulate the text for this speaker
-            speakers[current_speaker].append(speaker_text)
+            # Start a new speaker chunk
+            current_speaker = match.group(1).strip()
+            first_text = match.group(2).strip()
+            current_lines = [first_text] if first_text else []
+
         else:
-            # If there's no match, it's either a continuation or an unattributed line
-            if current_speaker:
-                speakers[current_speaker].append(text_line)
+            # No speaker pattern; this line continues the current speaker's chunk
+            if current_speaker is not None:
+                current_lines.append(line)
             else:
-                # Store unattributed lines separately instead of ignoring them
-                speakers["Unattributed"].append(text_line)
+                # If we haven't encountered a speaker yet, we could handle it as "Unattributed"
+                # or skip. Let's just skip or store in "Unknown"
+                if len(turns) == 0 or turns[-1].get("speaker") != "Unknown":
+                    turns.append({"speaker": "Unknown", "text": line})
+                else:
+                    turns[-1]["text"] += " " + line
 
-    # 6. Join all lines for each speaker into one big string
-    chris_text = " ".join(speakers["Chris Dixon"])
-    david_text = " ".join(speakers["David George"])
-    unattributed_text = " ".join(speakers["Unattributed"])
+    # After the loop, if we still have an unfinished chunk, append it
+    if current_speaker is not None:
+        turns.append({
+            "speaker": current_speaker,
+            "text": " ".join(current_lines)
+        })
 
-    # 7. Run spaCy Named Entity Recognition on each speaker's text
-    chris_doc = nlp(chris_text)
-    david_doc = nlp(david_text)
+    # 5. Now let's do spaCy-based topic extraction for each speaker chunk
+    for turn in turns:
+        speaker_name = turn["speaker"]
+        chunk_text = turn["text"]
+        if not chunk_text.strip():
+            continue  # Skip empty chunks
 
-    # 8. Extract entities for each speaker
-    chris_entities = [(ent.text, ent.label_) for ent in chris_doc.ents]
-    david_entities = [(ent.text, ent.label_) for ent in david_doc.ents]
+        # Identify potential topics
+        topics = extract_topics(chunk_text, nlp, top_n=5)
 
-    # 9. Print the results
-    print("=== Chris Dixon's Text ===")
-    print(chris_text)
-    print("\n=== Chris Dixon's Entities ===")
-    for ent_text, ent_label in chris_entities:
-        print(f"{ent_text} -> {ent_label}")
-
-    print("\n" + "="*40 + "\n")
-
-    print("=== David George's Text ===")
-    print(david_text)
-    print("\n=== David George's Entities ===")
-    for ent_text, ent_label in david_entities:
-        print(f"{ent_text} -> {ent_label}")
-
-    # Output for unattributed text (if any)
-    if unattributed_text:
-        print("\n" + "="*40 + "\n")
-        print("=== Unattributed Text ===")
-        print(unattributed_text)
-
+        # Print results
+        print(f"--- Speaker: {speaker_name} ---")
+        print(chunk_text)
+        print("Potential Topics:", topics)
+        print()
 
 if __name__ == "__main__":
     main()
