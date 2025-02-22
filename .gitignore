@@ -1,1 +1,36 @@
+# Ignore Python bytecode
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+
+# Ignore Poetry virtual environments
+.venv/
+env/
+venv/
+poetry.lock
+pyproject.toml
+
+# Ignore dotenv files (don't commit sensitive info like API keys)
 .env
+.env.*
+*.env
+
+# Ignore IDE configuration files
+.vscode/
+.idea/
+
+# Ignore test coverage and other reports
+.coverage
+*.coveragerc
+nosetests.xml
+test-*.xml
+coverage.xml
+*.hypothesis/
+
+# Ignore logs
+*.log
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
