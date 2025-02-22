@@ -1,0 +1,3344 @@
+{
+  "turns": [
+    {
+      "speaker": "Chris Dixon",
+      "text": "My meta-view is that technology waves tend to come in pairs or triples. Fifteen years ago, it was mobile, social, and cloud. I’m always giving this speech to entrepreneurs—these waves tend to reinforce each other. Mobile took computing from hundreds of millions to billions of people. Social was the killer app that hooked them. Cloud was the infrastructure that made it possible. You couldn’t really have one without the others. Back then, people debated which was better, but it turned out they were all better. ",
+      "entities": {
+        "DATE": [
+          "Fifteen years ago"
+        ],
+        "MONEY": [
+          "hundreds of millions to billions"
+        ],
+        "PERSON": [
+          "Cloud"
+        ]
+      },
+      "topics": [
+        "wave",
+        "cloud",
+        "people",
+        "meta",
+        "view"
+      ],
+      "entity_subtopics": {
+        "Fifteen years ago": [
+          "year",
+          "cloud"
+        ],
+        "hundreds of millions to billions": [
+          "mobile",
+          "computing",
+          "hundred"
+        ],
+        "Cloud": [
+          "cloud",
+          "infrastructure"
+        ]
+      },
+      "key_phrases": [
+        "it",
+        "people",
+        "that",
+        "my meta-view",
+        "technology waves"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "And they were all required. ",
+      "entities": {},
+      "topics": [],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "they"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "They’re all required. I think of AI, crypto, and new devices—probably robotics, self-driving cars, and VR—as the three most interesting things happening now. They complement each other and work together. Crypto is new—this is what my book is about—it’s a new way to architect internet services and build networks. It has different properties, which I argue are beneficial, and it enables things that weren’t possible before.  A lot of people think of crypto as Bitcoin or meme coins. That’s fundamentally not what it is to me or to the smart people working in the space. There are many ways it intersects with AI. ",
+      "entities": {
+        "GPE": [
+          "AI"
+        ],
+        "WORK_OF_ART": [
+          "VR"
+        ],
+        "CARDINAL": [
+          "three"
+        ],
+        "PERSON": [
+          "Bitcoin",
+          "Crypto"
+        ]
+      },
+      "topics": [
+        "crypto",
+        "ai",
+        "thing",
+        "way",
+        "people"
+      ],
+      "entity_subtopics": {
+        "AI": [
+          "way",
+          "ai"
+        ],
+        "VR": [
+          "ai",
+          "crypto",
+          "device"
+        ],
+        "three": [
+          "ai",
+          "crypto",
+          "device"
+        ],
+        "Crypto": [
+          "crypto",
+          "book",
+          "way"
+        ],
+        "Bitcoin": [
+          "lot",
+          "people",
+          "crypto"
+        ]
+      },
+      "key_phrases": [
+        "it",
+        "crypto",
+        "they",
+        "i",
+        "ai"
+      ]
+    },
+    {
+      "speaker": "The first lightweight way, which we’ve invested a lot in, is using this new architecture to build AI systems. One of the core questions we’ve discussed at this firm is the future of AI—will it be controlled by a small set of companies or by a broad community? The obvious first question there is",
+      "text": "Is it open source? ",
+      "entities": {},
+      "topics": [
+        "source"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "it",
+        "open source"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "Yes. ",
+      "entities": {},
+      "topics": [],
+      "entity_subtopics": {},
+      "key_phrases": []
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "It has shocked me how closed-source the AI world has become. Ten years ago, everything was open and published in papers. Then it all shut down and became closed. They said this was for safety reasons, but I think it was also very good for their defensibility.  Thankfully, there are projects like Llama, Flux, and Mistral that are open source. But I worry that’s a little fragile because many don’t release their model weights. Is it really open? Some of it is, but the data pipeline isn’t. Is it really reproducible? They could change it tomorrow. These models improve every month, and if they don’t push the frontier, I don’t know. ",
+      "entities": {
+        "GPE": [
+          "AI",
+          "Flux",
+          "n’t"
+        ],
+        "DATE": [
+          "Ten years ago",
+          "every month",
+          "tomorrow"
+        ],
+        "PERSON": [
+          "Thankfully"
+        ],
+        "PRODUCT": [
+          "Llama"
+        ]
+      },
+      "topics": [
+        "source",
+        "model",
+        "ai",
+        "world",
+        "year"
+      ],
+      "entity_subtopics": {
+        "AI": [
+          "source",
+          "ai",
+          "world"
+        ],
+        "Ten years ago": [
+          "year",
+          "paper"
+        ],
+        "Thankfully": [
+          "project",
+          "llama",
+          "flux"
+        ],
+        "Llama": [
+          "project",
+          "llama",
+          "flux"
+        ],
+        "Flux": [
+          "project",
+          "llama",
+          "flux"
+        ],
+        "n’t": [
+          "data",
+          "pipeline"
+        ],
+        "tomorrow": [
+          "tomorrow"
+        ],
+        "every month": [
+          "model",
+          "month",
+          "frontier"
+        ]
+      },
+      "key_phrases": [
+        "it",
+        "they",
+        "i",
+        "that",
+        "me"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "It’s very heavily dependent on one large company.  How crypto and AI interact",
+      "entities": {
+        "CARDINAL": [
+          "one"
+        ],
+        "GPE": [
+          "AI"
+        ]
+      },
+      "topics": [
+        "company",
+        "crypto",
+        "ai",
+        "interact"
+      ],
+      "entity_subtopics": {
+        "one": [
+          "company"
+        ],
+        "AI": [
+          "crypto",
+          "ai",
+          "interact"
+        ]
+      },
+      "key_phrases": [
+        "it",
+        "one large company",
+        "crypto",
+        "ai"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "One of the things we’ve invested in is a stack of internet services built for the AI stack but as open services at a different layer. As an example, there’s a project called Jensen, which is building a crowdsourced compute layer. As a startup, you can submit a job that goes beyond the compute you control, and it gets distributed across a network—kind of Airbnb-style—to people with excess compute. The network manages supply and demand.  That’s the economic ledger.  Yeah, that’s one example. Another is Story Protocol, which is a new way to register intellectual property. You can create an image, video, or piece of music and register it on a blockchain, which keeps a record of the media and its rights. It uses existing copyright law—the blockchain record mirrors a legal agreement crafted to work internationally. Anyone can come along and, as long as they abide by your terms, use the content. You might say, “You can use this, you can remix it, you can create derivative works, but any revenue you make, you have to pay me 10%.” ",
+      "entities": {
+        "CARDINAL": [
+          "One",
+          "one"
+        ],
+        "GPE": [
+          "AI"
+        ],
+        "PERSON": [
+          "Jensen",
+          "Story Protocol"
+        ],
+        "PERCENT": [
+          "10%"
+        ]
+      },
+      "topics": [
+        "stack",
+        "service",
+        "layer",
+        "example",
+        "compute"
+      ],
+      "entity_subtopics": {
+        "One": [
+          "stack",
+          "service",
+          "thing"
+        ],
+        "AI": [
+          "stack",
+          "service",
+          "thing"
+        ],
+        "Jensen": [
+          "example",
+          "project",
+          "jensen"
+        ],
+        "one": [
+          "example"
+        ],
+        "Story Protocol": [
+          "story",
+          "protocol",
+          "way"
+        ],
+        "10%": [
+          "work",
+          "revenue"
+        ]
+      },
+      "key_phrases": [
+        "you",
+        "it",
+        "which",
+        "that",
+        "the things"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "…or whatever. ",
+      "entities": {},
+      "topics": [],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "or whatever"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "You set the terms, creating an open marketplace. Right now, you have to contact a company and try to negotiate a BD deal, which leads to situations where people either steal content, don’t use it, or only large-scale companies can make deals. OpenAI paid Shutterstock $100M, but that’s just for high-end companies. This creates a broad, democratic resource where small creators can set their own terms.  A recurring theme in blockchain is composability. I have a chapter in my book on this—it’s a powerful force and the core reason for open-source software’s success. Open-source software has been the most successful open computing movement in the last 80 years. Linux went from 0% market share in the ’90s to over 90% today because of composability. People contribute small pieces to a system, making it better—like Wikipedia as a collective knowledge system.  Story Protocol creates the same kind of Lego brick effect for media. Someone creates a character, someone else creates another, someone else remixes them, and AI tools allow for generative AI storytelling. You can create a new superhero universe using existing Lego bricks, and as long as the money flows back, it works. ",
+      "entities": {
+        "ORG": [
+          "BD",
+          "Lego",
+          "Wikipedia"
+        ],
+        "MONEY": [
+          "$100M"
+        ],
+        "DATE": [
+          "the last 80 years",
+          "the ’90s",
+          "today"
+        ],
+        "PERCENT": [
+          "0%",
+          "90%"
+        ],
+        "PERSON": [
+          "Lego",
+          "Story Protocol"
+        ],
+        "GPE": [
+          "AI"
+        ]
+      },
+      "topics": [
+        "company",
+        "term",
+        "deal",
+        "people",
+        "composability"
+      ],
+      "entity_subtopics": {
+        "BD": [
+          "company",
+          "deal",
+          "bd"
+        ],
+        "$100M": [
+          "openai",
+          "shutterstock",
+          "m"
+        ],
+        "the last 80 years": [
+          "source",
+          "software",
+          "computing"
+        ],
+        "0%": [
+          "linux",
+          "market",
+          "share"
+        ],
+        "the ’90s": [
+          "linux",
+          "market",
+          "share"
+        ],
+        "90%": [
+          "linux",
+          "market",
+          "share"
+        ],
+        "today": [
+          "linux",
+          "market",
+          "share"
+        ],
+        "Wikipedia": [
+          "system",
+          "people",
+          "piece"
+        ],
+        "Story Protocol": [
+          "story",
+          "protocol",
+          "kind"
+        ],
+        "Lego": [
+          "superhero",
+          "universe",
+          "lego"
+        ],
+        "AI": [
+          "ai",
+          "character",
+          "tool"
+        ]
+      },
+      "key_phrases": [
+        "it",
+        "you",
+        "someone",
+        "people",
+        "this"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "The incentives are aligned because the money flows back. ",
+      "entities": {},
+      "topics": [
+        "incentive",
+        "money"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "the incentives",
+        "the money"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "It’s a great vision—it allows people to embrace these new tools while providing an economic model for creative people. A recurring theme in our investing is figuring out economic models for creative people in an AI-driven world. The goal isn’t to stop technological progress but to lean into it and rethink these models. That’s the most exciting area of this intersection. ",
+      "entities": {
+        "GPE": [
+          "AI"
+        ]
+      },
+      "topics": [
+        "people",
+        "model",
+        "vision",
+        "tool",
+        "theme"
+      ],
+      "entity_subtopics": {
+        "AI": [
+          "theme",
+          "investing",
+          "model"
+        ]
+      },
+      "key_phrases": [
+        "it",
+        "creative people",
+        "a great vision",
+        "people",
+        "these new tools"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "You go from social networking companies keeping 100% of the revenue when creators make content to a system where creators set their own pricing. Ideally, composability enables more creativity on top of that. ",
+      "entities": {
+        "PERCENT": [
+          "100%"
+        ]
+      },
+      "topics": [
+        "creator",
+        "company",
+        "revenue",
+        "content",
+        "system"
+      ],
+      "entity_subtopics": {
+        "100%": [
+          "creator",
+          "company",
+          "revenue"
+        ]
+      },
+      "key_phrases": [
+        "creators",
+        "you",
+        "social networking companies",
+        "100%",
+        "the revenue"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "That’s right. ",
+      "entities": {},
+      "topics": [],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "that"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "Because of the economic incentive alignment. ",
+      "entities": {},
+      "topics": [
+        "incentive",
+        "alignment"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "the economic incentive alignment"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "We’re seeing interesting experiments with crowdsourced model evaluation. Think of the data side—AI needs more data. Crypto is a breakthrough in designing new incentive systems. The question is, how do we use these systems to gather more data for AI? Data can be an input, model evaluation, or something else. It’s similar to what companies like Scale AI do, but in a crowdsourced rather than centralized way.  A project we invested in, co-founded by Sam Altman, is WorldCoin. The thesis is that in a world where AI can replicate humans and content, we need a way to prove someone is human. The best way to do that is cryptographically using a blockchain.  Their incentive system allows people to sign up. Originally, they used an orb to scan irises, which some found controversial. Now, they offer other methods, including passports. The idea is that once you prove your identity, you receive cryptographic proof on a blockchain, which can be used for various services.  A simple example is CAPTCHAs. Today, you solve puzzles that have become so complex they may no longer be AI-proof—or even human-proof. Instead of clunky fraud prevention systems, you could use cryptographic verification. You receive a cryptographic code, proving you’re human, and then layer additional verifications on top.  That’s another interesting intersection.  There are many opportunities at the infrastructure layer—taking centralized AI systems and decentralizing them in terms of code and services. There are also new possibilities, like machine-to-machine payments. Then there are the more ambitious ideas, which I find the most exciting—new business models for an AI-powered world, particularly for creative people.  Breaking the economic pact of the internet",
+      "entities": {
+        "PERSON": [
+          "Crypto",
+          "Sam Altman",
+          "Scale AI"
+        ],
+        "GPE": [
+          "AI"
+        ],
+        "ORG": [
+          "AI",
+          "WorldCoin"
+        ],
+        "NORP": [
+          "scan"
+        ],
+        "DATE": [
+          "Today"
+        ]
+      },
+      "topics": [
+        "ai",
+        "system",
+        "model",
+        "datum",
+        "way"
+      ],
+      "entity_subtopics": {
+        "Crypto": [
+          "crypto",
+          "breakthrough",
+          "incentive"
+        ],
+        "AI": [
+          "idea",
+          "business",
+          "model"
+        ],
+        "Scale AI": [
+          "company",
+          "scale",
+          "ai"
+        ],
+        "Sam Altman": [
+          "project",
+          "sam",
+          "altman"
+        ],
+        "WorldCoin": [
+          "project",
+          "sam",
+          "altman"
+        ],
+        "scan": [
+          "orb",
+          "iris"
+        ],
+        "Today": [
+          "proof",
+          "today",
+          "puzzle"
+        ]
+      },
+      "key_phrases": [
+        "you",
+        "we",
+        "ai",
+        "that",
+        "they"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "One of the things you pointed out to me right after the ChatGPT moment was, “Hey, we have the potential for a break in the pact of the internet,” which I think is a fascinating problem. ",
+      "entities": {
+        "CARDINAL": [
+          "One"
+        ]
+      },
+      "topics": [
+        "thing",
+        "moment",
+        "potential",
+        "break",
+        "pact"
+      ],
+      "entity_subtopics": {
+        "One": [
+          "thing",
+          "moment",
+          "potential"
+        ]
+      },
+      "key_phrases": [
+        "the things",
+        "you",
+        "me",
+        "the chatgpt moment",
+        "we"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "There’s a chapter on this in the book toward the end. I call it a new covenant. If you think about the incentive system, one of the main reasons the internet succeeded is that it had a very clever incentive system. How do you get 5B people to opt into a system without a central authority telling them to? It’s because of the incentives of the internet.  Specifically, over the last 20 years, an economic covenant has emerged between platforms—specifically social networks and search engines—and the people creating websites that those platforms link to. If you’re a travel website, a recipe site, or an artist with illustrations, there’s an implicit covenant with Google. You allow Google to crawl your content, index it, and show snippets in search results in exchange for traffic. That’s how the internet evolved. ",
+      "entities": {
+        "CARDINAL": [
+          "5B"
+        ],
+        "DATE": [
+          "the last 20 years"
+        ],
+        "ORG": [
+          "Google"
+        ]
+      },
+      "topics": [
+        "covenant",
+        "incentive",
+        "system",
+        "internet",
+        "people"
+      ],
+      "entity_subtopics": {
+        "5B": [
+          "people",
+          "system",
+          "authority"
+        ],
+        "the last 20 years": [
+          "platform",
+          "year",
+          "covenant"
+        ],
+        "Google": [
+          "google",
+          "content",
+          "index"
+        ]
+      },
+      "key_phrases": [
+        "it",
+        "you",
+        "the internet",
+        "google",
+        "a chapter"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "And it’s mutually beneficial. ",
+      "entities": {},
+      "topics": [],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "it"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Mutually beneficial. Occasionally, that covenant has been breached. Google has done something called one-boxing, where they take content and display it directly. I was on the board of Stack Overflow, and they did this—showing answers directly in search results instead of driving traffic to the site. They’ve done it with Wikipedia, lyrics sites, Yelp, and travel sites. ",
+      "entities": {
+        "ORG": [
+          "Google",
+          "Stack Overflow",
+          "Wikipedia",
+          "Yelp"
+        ],
+        "CARDINAL": [
+          "one"
+        ]
+      },
+      "topics": [
+        "site",
+        "covenant",
+        "google",
+        "boxing",
+        "content"
+      ],
+      "entity_subtopics": {
+        "Google": [
+          "google",
+          "boxing",
+          "content"
+        ],
+        "one": [
+          "google",
+          "boxing",
+          "content"
+        ],
+        "Stack Overflow": [
+          "board",
+          "stack",
+          "overflow"
+        ],
+        "Wikipedia": [
+          "site",
+          "wikipedia",
+          "lyric"
+        ],
+        "Yelp": [
+          "site",
+          "wikipedia",
+          "lyric"
+        ]
+      },
+      "key_phrases": [
+        "they",
+        "it",
+        "that covenant",
+        "google",
+        "something"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "Yeah, they did it with Yelp. ",
+      "entities": {
+        "ORG": [
+          "Yelp"
+        ]
+      },
+      "topics": [
+        "yelp"
+      ],
+      "entity_subtopics": {
+        "Yelp": [
+          "yelp"
+        ]
+      },
+      "key_phrases": [
+        "they",
+        "it",
+        "yelp"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "And people get upset. With Yelp, they promoted their own content over others. These issues existed, but the system still worked. Now, in an AI-driven world, if chatbots can generate an illustration or a recipe directly, that may be a better user experience. I’m not against it—it’s probably better for users. But it breaks the covenant. These systems were trained on data that was put on the internet under the prior covenant. ",
+      "entities": {
+        "GPE": [
+          "AI"
+        ]
+      },
+      "topics": [
+        "system",
+        "user",
+        "covenant",
+        "people",
+        "yelp"
+      ],
+      "entity_subtopics": {
+        "AI": [
+          "ai",
+          "world",
+          "chatbot"
+        ]
+      },
+      "key_phrases": [
+        "it",
+        "that",
+        "people",
+        "yelp",
+        "they"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "Under the premise that creators would get traffic. ",
+      "entities": {},
+      "topics": [
+        "premise",
+        "creator",
+        "traffic"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "the premise",
+        "creators",
+        "traffic"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "That’s right. ",
+      "entities": {},
+      "topics": [],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "that"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "And they could monetize it. ",
+      "entities": {},
+      "topics": [],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "they",
+        "it"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Exactly. That was the premise and the promise. Now, we have a new system that likely won’t send traffic. If these AI models provide answers directly, why would users click through? We’re headed toward a world with three to five major AI systems where users go to their websites for answers, bypassing the billion other websites that previously received traffic. The question is, what happens to those sites?  This is something I’ve been thinking about, and I’m surprised more people aren’t discussing it. I feel like I’m screaming into the abyss. AI companies took the data, and there will be copyright lawsuits, but beyond that… ",
+      "entities": {
+        "GPE": [
+          "n’t"
+        ],
+        "ORG": [
+          "AI"
+        ],
+        "CARDINAL": [
+          "billion",
+          "three to five"
+        ]
+      },
+      "topics": [
+        "ai",
+        "system",
+        "traffic",
+        "answer",
+        "user"
+      ],
+      "entity_subtopics": {
+        "n’t": [
+          "system",
+          "traffic"
+        ],
+        "AI": [
+          "website",
+          "world",
+          "ai"
+        ],
+        "three to five": [
+          "website",
+          "world",
+          "ai"
+        ],
+        "billion": [
+          "website",
+          "world",
+          "ai"
+        ]
+      },
+      "key_phrases": [
+        "that",
+        "i",
+        "we",
+        "traffic",
+        "answers"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "They’ve done some data deals. ",
+      "entities": {},
+      "topics": [
+        "data",
+        "deal"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "they",
+        "some data deals"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Some, but not many. Even beyond the societal impact and the small businesses affected, what happens to the internet? If the internet becomes five companies, it starts resembling broadcast TV in the 1970s, with only four channels. Is that the world we want? Is that a world that supports startups, innovation, and creativity? ",
+      "entities": {
+        "CARDINAL": [
+          "five",
+          "only four"
+        ],
+        "DATE": [
+          "the 1970s"
+        ]
+      },
+      "topics": [
+        "internet",
+        "world",
+        "impact",
+        "business",
+        "company"
+      ],
+      "entity_subtopics": {
+        "five": [
+          "internet",
+          "company",
+          "broadcast"
+        ],
+        "the 1970s": [
+          "internet",
+          "company",
+          "broadcast"
+        ],
+        "only four": [
+          "internet",
+          "company",
+          "broadcast"
+        ]
+      },
+      "key_phrases": [
+        "that",
+        "the internet",
+        "some",
+        "the societal impact",
+        "the small businesses"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "There won’t be a long tail of websites—the next generation of smaller sites. ",
+      "entities": {},
+      "topics": [
+        "tail",
+        "website",
+        "generation",
+        "site"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "a long tail",
+        "websites",
+        "the next generation",
+        "smaller sites"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Exactly. How do new websites break out? How do new things get created? I worry that we haven’t thought this through. I don’t claim to have the only answer, and it doesn’t have to be a crypto-based solution—I realize that’s controversial to some. But step one is recognizing that this breaks the internet’s incentives. Step two is asking whether that’s a good thing. I don’t think so. Step three is figuring out the right answer. Should we create new incentives?  This is why a lot of my focus has been on investing in and thinking about new incentive systems, like Story Protocol. We need to explore ways to layer new economic structures on top of existing systems.  From mobile, social, and cloud to crypto, AI, and hardware",
+      "entities": {
+        "CARDINAL": [
+          "three",
+          "two"
+        ],
+        "PERSON": [
+          "Story Protocol"
+        ],
+        "GPE": [
+          "AI"
+        ]
+      },
+      "topics": [
+        "step",
+        "incentive",
+        "thing",
+        "answer",
+        "system"
+      ],
+      "entity_subtopics": {
+        "two": [
+          "step",
+          "thing"
+        ],
+        "three": [
+          "step",
+          "answer"
+        ],
+        "Story Protocol": [
+          "lot",
+          "focus",
+          "incentive"
+        ],
+        "AI": [
+          "ai",
+          "hardware"
+        ]
+      },
+      "key_phrases": [
+        "i",
+        "we",
+        "this",
+        "step",
+        "that"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "One of the things you’ve talked about is this trifecta of technology products that have emerged at the same time—generative AI, crypto, and new hardware platforms. How do you see these three coming together? ",
+      "entities": {
+        "CARDINAL": [
+          "One",
+          "three"
+        ],
+        "GPE": [
+          "AI"
+        ]
+      },
+      "topics": [
+        "thing",
+        "trifecta",
+        "technology",
+        "product",
+        "time"
+      ],
+      "entity_subtopics": {
+        "One": [
+          "thing",
+          "trifecta",
+          "technology"
+        ],
+        "AI": [
+          "thing",
+          "trifecta",
+          "technology"
+        ],
+        "three": []
+      },
+      "key_phrases": [
+        "you",
+        "the things",
+        "this trifecta",
+        "technology products",
+        "that"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "The analogy, of course, is to mobile, social, and cloud—the last wave—where they reinforced each other. We’re already seeing some of this today.  New devices like AR and VR glasses use a lot of AI, leading to HER-style interactions. Self-driving cars, Tesla’s robotics efforts, and other humanoid robotics projects are just scratching the surface of real-world AI—deploying it in physical environments and enabling new applications.  On the crypto side, one area I’m excited about is DPIN—decentralized physical infrastructure. The most prominent example is Helium, a community-owned, crowdsourced telecom network that competes with Verizon and AT&T. Helium created an incentive system where anyone can set up a node at home, contributing to the network. These nodes function as wireless transmitters, and hundreds of thousands of people across the country have installed them.  Now, Helium offers a cellular service that is significantly cheaper than Verizon’s—$20 per month instead of $70—because much of the network runs on this community-built infrastructure rather than requiring tens of billions of dollars to construct.  Using crypto to bootstrap network effects",
+      "entities": {
+        "DATE": [
+          "today"
+        ],
+        "ORG": [
+          "AR",
+          "Helium",
+          "Tesla"
+        ],
+        "GPE": [
+          "AI",
+          "Verizon"
+        ],
+        "CARDINAL": [
+          "hundreds of thousands",
+          "one"
+        ],
+        "MONEY": [
+          "70",
+          "tens of billions of dollars"
+        ]
+      },
+      "topics": [
+        "network",
+        "helium",
+        "ai",
+        "robotic",
+        "infrastructure"
+      ],
+      "entity_subtopics": {
+        "today": [
+          "today"
+        ],
+        "AR": [
+          "device",
+          "ar",
+          "vr"
+        ],
+        "AI": [
+          "robotic",
+          "self",
+          "car"
+        ],
+        "Tesla": [
+          "robotic",
+          "self",
+          "car"
+        ],
+        "one": [
+          "area",
+          "dpin",
+          "infrastructure"
+        ],
+        "Helium": [
+          "example",
+          "helium",
+          "community"
+        ],
+        "Verizon": [
+          "example",
+          "helium",
+          "community"
+        ],
+        "hundreds of thousands": [
+          "node",
+          "transmitter",
+          "hundred"
+        ],
+        "70": [
+          "helium",
+          "service",
+          "verizon’s—$20"
+        ],
+        "tens of billions of dollars": [
+          "helium",
+          "service",
+          "verizon’s—$20"
+        ]
+      },
+      "key_phrases": [
+        "helium",
+        "that",
+        "the network",
+        "the analogy",
+        "course"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "What’s interesting is how they use crypto. Crypto excels at creating incentive systems. Traditionally, the hardest part of building a network is the bootstrap phase.  Once a network reaches critical mass, its value is clear. If I can sign up for a cellular network and use it anywhere in the country, I’ll pay for that. But early on, when only 10 houses have access, it’s not attractive. The same challenge applies to dating sites—if there are only 10 people, it’s not useful. If there are millions, it is. ",
+      "entities": {
+        "CARDINAL": [
+          "millions",
+          "only 10"
+        ]
+      },
+      "topics": [
+        "network",
+        "crypto",
+        "excel",
+        "incentive",
+        "system"
+      ],
+      "entity_subtopics": {
+        "only 10": [
+          "challenge",
+          "site",
+          "people"
+        ],
+        "millions": [
+          "million"
+        ]
+      },
+      "key_phrases": [
+        "it",
+        "a network",
+        "i",
+        "what",
+        "they"
+      ]
+    },
+    {
+      "speaker": "This is the classic problem of building networks",
+      "text": "how to overcome the early phase when network effects are weak. Crypto is the perfect complement—it provides incentives to help build a network in its early stages.  Many of the world’s most interesting networks are physical. There are crypto projects for climate and weather modeling, mapping self-driving data, electric car charging, cellular networking, and energy metric monitoring. There’s also decentralized science, which integrates crypto with scientific applications. ",
+      "entities": {
+        "PERSON": [
+          "Crypto"
+        ]
+      },
+      "topics": [
+        "network",
+        "crypto",
+        "phase",
+        "effect",
+        "complement"
+      ],
+      "entity_subtopics": {
+        "Crypto": [
+          "crypto",
+          "complement",
+          "incentive"
+        ]
+      },
+      "key_phrases": [
+        "crypto",
+        "the early phase",
+        "network effects",
+        "the perfect complement",
+        "it"
+      ]
+    },
+    {
+      "speaker": "A simple way to think about it",
+      "text": "anywhere you need to build a network but face challenges in the early stages, crypto can be a powerful tool for bootstrapping.  If I had to pick one area where crypto, AI, and hardware intersect in a meaningful way, it would be physical networks and robotics—particularly where they connect with data collection and broader AI-driven themes.  Is AI frosting or sugar?",
+      "entities": {
+        "CARDINAL": [
+          "one"
+        ],
+        "GPE": [
+          "AI"
+        ]
+      },
+      "topics": [
+        "ai",
+        "network",
+        "crypto",
+        "face",
+        "challenge"
+      ],
+      "entity_subtopics": {
+        "one": [
+          "ai",
+          "area",
+          "crypto"
+        ],
+        "AI": [
+          "ai",
+          "area",
+          "crypto"
+        ]
+      },
+      "key_phrases": [
+        "you",
+        "a network",
+        "challenges",
+        "the early stages",
+        "crypto"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "Marc gave me a framework I like: Is AI frosting or sugar? Is it the core ingredient? If AI is just frosting, incumbents will win because they can slap a chatbot onto their existing product and leverage distribution, selling power, and relationships. But if AI is a fundamental ingredient, you can’t just add it in—you have to build from scratch, which favors newcomers. We haven’t yet seen a clear answer. The more cellular or skeuomorphic something is, the more it favors incumbents. ",
+      "entities": {
+        "PERSON": [
+          "Marc"
+        ],
+        "GPE": [
+          "AI"
+        ]
+      },
+      "topics": [
+        "ai",
+        "ingredient",
+        "incumbent",
+        "marc",
+        "framework"
+      ],
+      "entity_subtopics": {
+        "Marc": [
+          "marc",
+          "framework",
+          "ai"
+        ],
+        "AI": [
+          "ai",
+          "ingredient",
+          "scratch"
+        ]
+      },
+      "key_phrases": [
+        "ai",
+        "it",
+        "incumbents",
+        "you",
+        "marc"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Another way to frame Marc’s thinking is through Clay Christensen’s view: Is it disruptive or sustaining? People often misunderstand Christensen’s concept—disruptive doesn’t just mean new. It means misaligned with the incumbent’s business model. That’s what makes it difficult for even smart incumbents to react, because their best customers aren’t asking for it. That somewhat overlaps with Marc’s frosting-versus-core-ingredient idea. ",
+      "entities": {
+        "PERSON": [
+          "Christensen",
+          "Clay Christensen",
+          "Marc"
+        ]
+      },
+      "topics": [
+        "marc",
+        "christensen",
+        "incumbent",
+        "way",
+        "thinking"
+      ],
+      "entity_subtopics": {
+        "Marc": [
+          "marc",
+          "core",
+          "idea"
+        ],
+        "Clay Christensen": [
+          "way",
+          "marc",
+          "thinking"
+        ],
+        "Christensen": [
+          "people",
+          "christensen",
+          "concept"
+        ]
+      },
+      "key_phrases": [
+        "it",
+        "that",
+        "another way",
+        "marc",
+        "thinking"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "It could also mean a fundamentally different business model. ",
+      "entities": {},
+      "topics": [
+        "business",
+        "model"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "it",
+        "a fundamentally different business model"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Exactly. Instead of traditional databases, it could be a radical new architecture that eliminates databases altogether. Something that cannibalizes the incumbent model makes it organizationally and economically harder for them to integrate. ",
+      "entities": {},
+      "topics": [
+        "database",
+        "architecture",
+        "model"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "it",
+        "that",
+        "traditional databases",
+        "a radical new architecture",
+        "databases"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "We haven’t seen that yet. We’ve seen discussions about how pricing relates to this. ",
+      "entities": {},
+      "topics": [
+        "discussion",
+        "pricing"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "we",
+        "that",
+        "discussions",
+        "pricing",
+        "this"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "That’s the second piece. There’s a framework I like to use to think about how these things roll out, but first, let’s talk about consumer AI. Right now, I don’t think we’re seeing network-effect businesses in consumer AI. As successful as Claude and ChatGPT are, they don’t seem to have strong network effects. Their switching costs are relatively low. ",
+      "entities": {
+        "ORDINAL": [
+          "first",
+          "second"
+        ],
+        "GPE": [
+          "AI"
+        ],
+        "PERSON": [
+          "Claude"
+        ]
+      },
+      "topics": [
+        "consumer",
+        "ai",
+        "network",
+        "effect",
+        "piece"
+      ],
+      "entity_subtopics": {
+        "second": [
+          "piece"
+        ],
+        "first": [
+          "framework",
+          "thing",
+          "consumer"
+        ],
+        "AI": [
+          "network",
+          "effect",
+          "business"
+        ],
+        "Claude": [
+          "claude",
+          "chatgpt",
+          "network"
+        ]
+      },
+      "key_phrases": [
+        "i",
+        "consumer ai",
+        "that",
+        "the second piece",
+        "a framework"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "We actually thought the killer feature might be a data network effect. ",
+      "entities": {},
+      "topics": [
+        "killer",
+        "feature",
+        "data",
+        "network",
+        "effect"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "we",
+        "the killer feature",
+        "a data network effect"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "There is a data network effect—people respond, and reinforcement learning loops emerge. ",
+      "entities": {},
+      "topics": [
+        "data",
+        "network",
+        "effect",
+        "people",
+        "reinforcement"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "a data network effect",
+        "people",
+        "reinforcement learning loops"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "But it turns out humans are relatively uninteresting in that sense. ",
+      "entities": {},
+      "topics": [
+        "human",
+        "sense"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "it",
+        "humans",
+        "that sense"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Exactly. Most of what people do doesn’t generate meaningful learning at the individual level. ",
+      "entities": {},
+      "topics": [
+        "people",
+        "learning",
+        "level"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "what",
+        "people",
+        "meaningful learning",
+        "the individual level"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "Data network effects have been talked about for 20 years, but they rarely materialize. ",
+      "entities": {
+        "DATE": [
+          "20 years"
+        ]
+      },
+      "topics": [
+        "data",
+        "network",
+        "effect",
+        "year"
+      ],
+      "entity_subtopics": {
+        "20 years": [
+          "data",
+          "network",
+          "effect"
+        ]
+      },
+      "key_phrases": [
+        "data network effects",
+        "20 years",
+        "they"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "I don’t think they apply here either. ",
+      "entities": {},
+      "topics": [],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "i",
+        "they"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "We thought they might, but they don’t. ",
+      "entities": {},
+      "topics": [],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "they",
+        "we"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "The risk for these AI companies is competition. Brand matters—ChatGPT has a strong brand—but the question is how they avoid steady-state price competition leading to a race to the bottom. They will be important businesses, but will they be dominant?  What’s the opportunity for new startups? In AI consumer ventures, we see apps like face-enhancement tools shoot up the charts, but then TikTok copies them. Without network effects, these businesses struggle to sustain their advantage. ",
+      "entities": {
+        "GPE": [
+          "AI"
+        ],
+        "ORG": [
+          "TikTok"
+        ]
+      },
+      "topics": [
+        "ai",
+        "competition",
+        "brand",
+        "business",
+        "risk"
+      ],
+      "entity_subtopics": {
+        "AI": [
+          "ai",
+          "consumer",
+          "venture"
+        ],
+        "TikTok": [
+          "ai",
+          "consumer",
+          "venture"
+        ]
+      },
+      "key_phrases": [
+        "they",
+        "the risk",
+        "these ai companies",
+        "competition",
+        "chatgpt"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "No network effects. ",
+      "entities": {},
+      "topics": [
+        "network",
+        "effect"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "no network effects"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Exactly.  Come for the tool, stay for the network",
+      "entities": {},
+      "topics": [
+        "tool",
+        "network"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "the tool",
+        "the network"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "There’s a strategy I like to talk about called “come for the tool, stay for the network.” The idea is that you can use something like a face-enhancement app as a hook to bring people into a new social network. However, this feels extremely difficult today given the scale and power of incumbents. ",
+      "entities": {
+        "DATE": [
+          "today"
+        ]
+      },
+      "topics": [
+        "network",
+        "strategy",
+        "tool",
+        "idea",
+        "face"
+      ],
+      "entity_subtopics": {
+        "today": [
+          "today",
+          "scale",
+          "power"
+        ]
+      },
+      "key_phrases": [
+        "a strategy",
+        "i",
+        "the tool",
+        "the network",
+        "the idea"
+      ]
+    },
+    {
+      "speaker": "That idea also intersects with crypto. In my book, I argue that crypto is a new way to build networks. You have AI, which enables fascinating use cases but lacks network effects. Then you have crypto, which is all about network effects. The question is",
+      "text": "Are there interesting ways to combine them?  Skeuomorphic vs. native technologies",
+      "entities": {
+        "PERSON": [
+          "Skeuomorphic"
+        ]
+      },
+      "topics": [
+        "way",
+        "technology"
+      ],
+      "entity_subtopics": {
+        "Skeuomorphic": [
+          "technology"
+        ]
+      },
+      "key_phrases": [
+        "interesting ways",
+        "them",
+        "native technologies"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Before getting into that, it’s important to talk about how major technologies roll out in stages. One way to think about technology is that it can do one of two things:  Improve old processes. Enable entirely new things that weren’t possible before. The first category is called skeuomorphic—a term Steve Jobs used to describe designs that mimic previous eras to make new products more familiar. The second is native apps, which enable something fundamentally new. ",
+      "entities": {
+        "CARDINAL": [
+          "One",
+          "one",
+          "two"
+        ],
+        "ORG": [
+          "Improve"
+        ],
+        "ORDINAL": [
+          "first",
+          "second"
+        ],
+        "PERSON": [
+          "Steve Jobs"
+        ]
+      },
+      "topics": [
+        "technology",
+        "thing",
+        "stage",
+        "way",
+        "process"
+      ],
+      "entity_subtopics": {
+        "One": [
+          "way",
+          "technology",
+          "thing"
+        ],
+        "one": [
+          "way",
+          "technology",
+          "thing"
+        ],
+        "two": [
+          "way",
+          "technology",
+          "thing"
+        ],
+        "Improve": [
+          "way",
+          "technology",
+          "thing"
+        ],
+        "first": [
+          "category",
+          "term",
+          "steve"
+        ],
+        "Steve Jobs": [
+          "category",
+          "term",
+          "steve"
+        ],
+        "second": [
+          "second",
+          "app"
+        ]
+      },
+      "key_phrases": [
+        "that",
+        "it",
+        "major technologies",
+        "stages",
+        "one way"
+      ]
+    },
+    {
+      "speaker": "There’s also a third stage",
+      "text": "second-order effects—the broader changes enabled by new technology. For example, after cars were invented, we built highways, suburbs, and trucking infrastructure. A famous idea in science fiction is that good writers predict the car, but great writers predict the traffic jam. ",
+      "entities": {
+        "ORDINAL": [
+          "second"
+        ]
+      },
+      "topics": [
+        "car",
+        "writer",
+        "order",
+        "effect",
+        "change"
+      ],
+      "entity_subtopics": {
+        "second": [
+          "order",
+          "effect",
+          "change"
+        ]
+      },
+      "key_phrases": [
+        "second-order effects",
+        "the broader changes",
+        "new technology",
+        "example",
+        "cars"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "Of course. ",
+      "entities": {},
+      "topics": [],
+      "entity_subtopics": {},
+      "key_phrases": []
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Second-order effects matter. Bitcoin couldn’t have existed before social networking. Thirty years ago, if you told someone that gatekeepers would disappear and people would control their own media, they wouldn’t have predicted digital currencies emerging from that. ",
+      "entities": {
+        "ORDINAL": [
+          "Second"
+        ],
+        "DATE": [
+          "Thirty years ago"
+        ]
+      },
+      "topics": [
+        "order",
+        "effect",
+        "matter",
+        "bitcoin",
+        "networking"
+      ],
+      "entity_subtopics": {
+        "Second": [
+          "order",
+          "effect",
+          "matter"
+        ],
+        "Thirty years ago": [
+          "year",
+          "gatekeeper",
+          "people"
+        ]
+      },
+      "key_phrases": [
+        "second-order effects",
+        "bitcoin",
+        "social networking",
+        "you",
+        "someone"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "There would have been no way to create communities around them. ",
+      "entities": {},
+      "topics": [
+        "way",
+        "community"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "no way",
+        "communities",
+        "them"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Exactly. It would have been a New York Times article dismissing the idea, and that would have been the end of it. There would have been no space for people to congregate, discuss, and build momentum. Many token communities resemble religious movements in that they need places to gather. Now they have that, which creates all kinds of second-order effects—including in politics and society at large.  For AI, the first stage is the skeuomorphic phase. This is where we see AI replacing existing jobs, like customer service roles. Instead of a human in a call center, you have an AI-powered chatbot. It’s a one-to-one replacement—cheaper, more systematic, and disruptive to jobs. Hopefully, it will also create more and better jobs, but this is the first, obvious phase.  People get excited about AI’s potential because they see this phase affecting tens of millions of jobs. Many roles in the knowledge economy—including ours, where we spend all day typing emails—could be impacted. ",
+      "entities": {
+        "ORG": [
+          "New York Times"
+        ],
+        "ORDINAL": [
+          "first",
+          "second"
+        ],
+        "GPE": [
+          "AI"
+        ],
+        "CARDINAL": [
+          "one"
+        ],
+        "MONEY": [
+          "tens of millions"
+        ],
+        "DATE": [
+          "all day"
+        ]
+      },
+      "topics": [
+        "ai",
+        "job",
+        "phase",
+        "people",
+        "role"
+      ],
+      "entity_subtopics": {
+        "New York Times": [
+          "new",
+          "york",
+          "times"
+        ],
+        "second": [
+          "kind",
+          "order",
+          "effect"
+        ],
+        "AI": [
+          "people",
+          "ai",
+          "potential"
+        ],
+        "first": [
+          "job",
+          "phase"
+        ],
+        "one": [
+          "replacement",
+          "job"
+        ],
+        "tens of millions": [
+          "people",
+          "ai",
+          "potential"
+        ],
+        "all day": [
+          "role",
+          "knowledge",
+          "economy"
+        ]
+      },
+      "key_phrases": [
+        "it",
+        "they",
+        "that",
+        "people",
+        "ai"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "That’s the joke—we speculate about it, but we’re part of that group too. ",
+      "entities": {},
+      "topics": [
+        "joke",
+        "group"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "we",
+        "that",
+        "the joke",
+        "it",
+        "part"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Phase one is skeuomorphic, but it can last 20 years. That could be what happens with AI for the next two decades.  The next phase is the native phase, which is what excites me more. Looking at the internet as an analogy, the ’90s were the skeuomorphic phase. Back then, businesses simply put offline experiences—magazines, catalogs—onto the internet. Buying something online was more convenient than using a paper catalog, but fundamentally, it wasn’t new.  The native phase began in the 2000s with social networking—an entirely new behavior with no offline equivalent. Facebook started as a digital yearbook, but as it evolved into the News Feed and beyond, it became something entirely new.  I go into this in detail in my book, but that transformation took a decade or more—from Mosaic in 1993 to YouTube and Facebook around 2005.  AI is at a similar inflection point. ",
+      "entities": {
+        "DATE": [
+          "1993",
+          "a decade",
+          "around 2005",
+          "last 20 years",
+          "the 2000s",
+          "the next two decades"
+        ],
+        "GPE": [
+          "AI"
+        ],
+        "ORG": [
+          "Mosaic",
+          "the News Feed"
+        ],
+        "PRODUCT": [
+          "YouTube"
+        ]
+      },
+      "topics": [
+        "phase",
+        "ai",
+        "decade",
+        "internet",
+        "catalog"
+      ],
+      "entity_subtopics": {
+        "last 20 years": [
+          "phase",
+          "year"
+        ],
+        "AI": [
+          "ai",
+          "inflection",
+          "point"
+        ],
+        "the next two decades": [
+          "ai",
+          "decade"
+        ],
+        "the 2000s": [
+          "phase",
+          "2000",
+          "networking"
+        ],
+        "the News Feed": [
+          "facebook",
+          "yearbook",
+          "news"
+        ],
+        "a decade": [
+          "detail",
+          "book",
+          "transformation"
+        ],
+        "Mosaic": [
+          "detail",
+          "book",
+          "transformation"
+        ],
+        "1993": [
+          "detail",
+          "book",
+          "transformation"
+        ],
+        "YouTube": [
+          "detail",
+          "book",
+          "transformation"
+        ],
+        "around 2005": [
+          "detail",
+          "book",
+          "transformation"
+        ]
+      },
+      "key_phrases": [
+        "it",
+        "what",
+        "ai",
+        "the native phase",
+        "the internet"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "And with business models that didn’t exist before. ",
+      "entities": {},
+      "topics": [
+        "business",
+        "model"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "business models",
+        "that"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Exactly. The business models and entire concepts were new. Early Facebook had loose analogs, like yearbooks, but as it evolved, it became something unimaginable before.  One of the most exciting aspects of the native phase is that it enables new products and media forms.  When photography first emerged, cultural critics worried about its impact on art. Walter Benjamin’s famous essay, The Work of Art in the Age of Mechanical Reproduction, questioned what would happen to artists when anyone could take a photograph.  Today, similar concerns exist about generative AI. If AI can create entire movies, what happens to traditional filmmaking? ",
+      "entities": {
+        "CARDINAL": [
+          "One"
+        ],
+        "ORDINAL": [
+          "first"
+        ],
+        "PERSON": [
+          "Walter Benjamin’s"
+        ],
+        "WORK_OF_ART": [
+          "The Work of Art in the Age of Mechanical Reproduction"
+        ],
+        "DATE": [
+          "Today"
+        ],
+        "GPE": [
+          "AI"
+        ]
+      },
+      "topics": [
+        "art",
+        "ai",
+        "business",
+        "model",
+        "concept"
+      ],
+      "entity_subtopics": {
+        "One": [
+          "aspect",
+          "phase",
+          "product"
+        ],
+        "first": [
+          "photography",
+          "critic",
+          "impact"
+        ],
+        "Walter Benjamin’s": [
+          "walter",
+          "benjamin",
+          "essay"
+        ],
+        "The Work of Art in the Age of Mechanical Reproduction": [
+          "walter",
+          "benjamin",
+          "essay"
+        ],
+        "Today": [
+          "today",
+          "concern",
+          "ai"
+        ],
+        "AI": [
+          "ai",
+          "movie",
+          "filmmaking"
+        ]
+      },
+      "key_phrases": [
+        "it",
+        "art",
+        "what",
+        "the business models",
+        "entire concepts"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "We’re already seeing that with images.  AI as the creative substrate of our era",
+      "entities": {
+        "GPE": [
+          "AI"
+        ]
+      },
+      "topics": [
+        "image",
+        "ai",
+        "substrate",
+        "era"
+      ],
+      "entity_subtopics": {
+        "AI": [
+          "ai",
+          "substrate",
+          "era"
+        ]
+      },
+      "key_phrases": [
+        "we",
+        "that",
+        "images",
+        "ai",
+        "the creative substrate"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Images are there, and video is probably coming soon. What happened with photography was twofold. Fine art moved toward abstraction, away from photography, leaning into what made it unique—giving rise to movements like Cubism. On the other side, photography enabled the rise of film. Someone recognized that while machines could replace photography, they could also create a brand-new art form that never existed before. Animation had some of this, but film became a sophisticated new medium.  Film became the native media form of the age of mechanical reproduction. ",
+      "entities": {
+        "NORP": [
+          "Cubism"
+        ],
+        "PERSON": [
+          "Film"
+        ]
+      },
+      "topics": [
+        "photography",
+        "film",
+        "art",
+        "rise",
+        "form"
+      ],
+      "entity_subtopics": {
+        "Cubism": [
+          "art",
+          "abstraction",
+          "photography"
+        ],
+        "Film": [
+          "film",
+          "medium",
+          "form"
+        ]
+      },
+      "key_phrases": [
+        "photography",
+        "film",
+        "what",
+        "images",
+        "video"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "That’s a fascinating analogy. ",
+      "entities": {},
+      "topics": [
+        "analogy"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "that",
+        "a fascinating analogy"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "With generative AI, the negative perspective—common in the art community and on Twitter—is that it’s just a cheap replacement for human creativity. The positive perspective is that it’s a base layer, similar to how film became a base layer. AI provides a new canvas for human creativity, enabling new art forms. I don’t know exactly what those are—maybe virtual worlds, games, or new types of films. ",
+      "entities": {
+        "GPE": [
+          "AI"
+        ],
+        "PERSON": [
+          "Twitter"
+        ]
+      },
+      "topics": [
+        "ai",
+        "perspective",
+        "art",
+        "creativity",
+        "base"
+      ],
+      "entity_subtopics": {
+        "AI": [
+          "ai",
+          "perspective",
+          "art"
+        ],
+        "Twitter": [
+          "ai",
+          "perspective",
+          "art"
+        ]
+      },
+      "key_phrases": [
+        "it",
+        "human creativity",
+        "a base layer",
+        "generative ai",
+        "the negative perspective"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "They may intersect with entirely new ways to consume media. ",
+      "entities": {},
+      "topics": [
+        "way",
+        "medium"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "they",
+        "entirely new ways",
+        "media"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Yes, maybe through new interfaces. That’s what excites me about native media and apps—they emerge from creative minds in unexpected ways. Watching previous waves of technology unfold, it’s clear that brilliant creators drive innovation. That’s the phase I’m looking forward to: not just using AI to make existing things cheaper, but pushing the frontier to create things that were never possible before. ",
+      "entities": {
+        "GPE": [
+          "AI"
+        ]
+      },
+      "topics": [
+        "thing",
+        "interface",
+        "medium",
+        "app",
+        "mind"
+      ],
+      "entity_subtopics": {
+        "AI": [
+          "thing",
+          "phase",
+          "ai"
+        ]
+      },
+      "key_phrases": [
+        "that",
+        "new interfaces",
+        "what",
+        "me",
+        "native media"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "Entirely. ",
+      "entities": {},
+      "topics": [],
+      "entity_subtopics": {},
+      "key_phrases": []
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Just as film did. Looking back, most would agree that photography unlocked more opportunities for creative people than it eliminated. ",
+      "entities": {},
+      "topics": [
+        "film",
+        "photography",
+        "opportunity",
+        "people"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "film",
+        "photography",
+        "more opportunities",
+        "creative people",
+        "it"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "More than if it had never existed. ",
+      "entities": {},
+      "topics": [],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "it"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "That’s the hope in this phase. The media example is one area, but the same applies to consumer applications, social networking, and productivity. The exciting part will be not just replacing what exists today, but inventing entirely new behaviors and possibilities.  The third phase is second-order effects. When you create something new, broader changes follow. Social networking is a good example. It rose in the 2000s, and by the 2008 and 2012 Obama elections, it had reached a tipping point. News articles at the time noted how different it was—how social media had shifted from secondary to primary.  Then we started seeing unexpected societal shifts. Movements like Trump’s populism surprised many. Behavior changed in ways we still don’t fully understand, and we’re in a state of disequilibrium.  Social media’s second-order effects are still playing out. Crypto and other emerging movements today are arguably second-order effects of social media. These effects could unfold over the next 20 to 30 years. That will likely be phase three of the AI revolution. ",
+      "entities": {
+        "CARDINAL": [
+          "one",
+          "three"
+        ],
+        "DATE": [
+          "2008",
+          "2012",
+          "the 2000s",
+          "the next 20 to 30 years",
+          "today"
+        ],
+        "ORDINAL": [
+          "second",
+          "third"
+        ],
+        "PERSON": [
+          "Obama"
+        ],
+        "ORG": [
+          "Trump"
+        ]
+      },
+      "topics": [
+        "medium",
+        "effect",
+        "phase",
+        "order",
+        "example"
+      ],
+      "entity_subtopics": {
+        "one": [
+          "medium",
+          "example",
+          "area"
+        ],
+        "today": [
+          "crypto",
+          "movement",
+          "today"
+        ],
+        "third": [
+          "phase",
+          "order",
+          "effect"
+        ],
+        "second": [
+          "crypto",
+          "movement",
+          "today"
+        ],
+        "the 2000s": [
+          "obama",
+          "election",
+          "tipping"
+        ],
+        "2008": [
+          "obama",
+          "election",
+          "tipping"
+        ],
+        "2012": [
+          "obama",
+          "election",
+          "tipping"
+        ],
+        "Obama": [
+          "obama",
+          "election",
+          "tipping"
+        ],
+        "Trump": [
+          "movement",
+          "trump",
+          "populism"
+        ],
+        "the next 20 to 30 years": [
+          "effect",
+          "year"
+        ],
+        "three": [
+          "phase",
+          "ai",
+          "revolution"
+        ]
+      },
+      "key_phrases": [
+        "it",
+        "we",
+        "that",
+        "social networking",
+        "second-order effects"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "And thinking about the timelines… ",
+      "entities": {},
+      "topics": [
+        "timeline"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "the timelines"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "It will probably take a long time. Historically, I’ve been overly optimistic—I’ll say, “We’re done with the skeuomorphic phase of AI, now we move to the native phase.” But in reality, each phase probably takes a decade.  Balancing supply and demand in AI",
+      "entities": {
+        "GPE": [
+          "AI"
+        ],
+        "DATE": [
+          "a decade"
+        ]
+      },
+      "topics": [
+        "phase",
+        "ai",
+        "time",
+        "i’ll",
+        "reality"
+      ],
+      "entity_subtopics": {
+        "AI": [
+          "supply",
+          "demand",
+          "ai"
+        ],
+        "a decade": [
+          "reality",
+          "phase",
+          "decade"
+        ]
+      },
+      "key_phrases": [
+        "we",
+        "ai",
+        "it",
+        "a long time",
+        "i"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "One of the interesting things you said about these distinct phases is that the internet took a long time, partially because you had to build a network. ",
+      "entities": {
+        "CARDINAL": [
+          "One"
+        ]
+      },
+      "topics": [
+        "thing",
+        "phase",
+        "internet",
+        "time",
+        "network"
+      ],
+      "entity_subtopics": {
+        "One": [
+          "thing",
+          "phase",
+          "internet"
+        ]
+      },
+      "key_phrases": [
+        "you",
+        "the interesting things",
+        "these distinct phases",
+        "the internet",
+        "a long time"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Yeah, it was a physical network. ",
+      "entities": {},
+      "topics": [
+        "network"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "it",
+        "a physical network"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "A supply and demand issue—physically laying cables and then wireless infrastructure. With AI, you have to build large clusters of compute and GPUs, but the constraining factor for moving from the skeuomorphic phase to the native phase isn’t necessarily capabilities. It’s human creativity and ideas. ",
+      "entities": {
+        "GPE": [
+          "AI"
+        ]
+      },
+      "topics": [
+        "phase",
+        "supply",
+        "demand",
+        "issue",
+        "cable"
+      ],
+      "entity_subtopics": {
+        "AI": [
+          "phase",
+          "ai",
+          "cluster"
+        ]
+      },
+      "key_phrases": [
+        "a supply and demand issue",
+        "cables",
+        "then wireless infrastructure",
+        "ai",
+        "you"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "I think so. The bottleneck will be humans and policy regulation, which are closely connected. It’s both a supply and demand issue, but probably more on the demand side.  On the supply side, you need people to come up with creative applications. The startup world is more mature now than when I entered it. There were 10 venture firms then; now, there are thousands. The ecosystem is more developed—there are more startups, better advice, and more access to funding. ",
+      "entities": {
+        "CARDINAL": [
+          "10",
+          "thousands"
+        ]
+      },
+      "topics": [
+        "supply",
+        "demand",
+        "startup",
+        "bottleneck",
+        "human"
+      ],
+      "entity_subtopics": {
+        "10": [
+          "venture",
+          "firm",
+          "thousand"
+        ],
+        "thousands": [
+          "venture",
+          "firm",
+          "thousand"
+        ]
+      },
+      "key_phrases": [
+        "i",
+        "it",
+        "the bottleneck",
+        "humans",
+        "policy regulation"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "It’s a more popular path for smart people now. ",
+      "entities": {},
+      "topics": [
+        "path",
+        "people"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "it",
+        "a more popular path",
+        "smart people"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Yes, places like Y Combinator have helped establish startups as a viable career path. Fifteen years ago, people didn’t consider startups as an option. Now, there are established mentors, funding sources, and a body of good advice. The standard advice used to be terrible—now, it’s much better. If you’re smart and socially adept, you can integrate into the startup world relatively quickly in San Francisco.  Silicon Valley has become highly efficient at directing capital and energy toward problems.  On the demand side, the challenge is changing organizational and human behavior. For example, how long will it take Hollywood to adopt AI? ",
+      "entities": {
+        "PRODUCT": [
+          "Y Combinator"
+        ],
+        "DATE": [
+          "Fifteen years ago"
+        ],
+        "GPE": [
+          "AI",
+          "Hollywood",
+          "San Francisco"
+        ],
+        "LOC": [
+          "Silicon Valley"
+        ]
+      },
+      "topics": [
+        "startup",
+        "advice",
+        "place",
+        "y",
+        "combinator"
+      ],
+      "entity_subtopics": {
+        "Y Combinator": [
+          "place",
+          "y",
+          "combinator"
+        ],
+        "Fifteen years ago": [
+          "year",
+          "people",
+          "startup"
+        ],
+        "San Francisco": [
+          "world",
+          "san",
+          "francisco"
+        ],
+        "Silicon Valley": [
+          "silicon",
+          "valley",
+          "capital"
+        ],
+        "Hollywood": [
+          "example",
+          "hollywood",
+          "ai"
+        ],
+        "AI": [
+          "example",
+          "hollywood",
+          "ai"
+        ]
+      },
+      "key_phrases": [
+        "startups",
+        "it",
+        "you",
+        "places",
+        "y combinator"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "That’s specific. ",
+      "entities": {},
+      "topics": [],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "that"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "When I wrote my book, I wanted to use AI to generate an audiobook in my own voice. Both the publisher and Audible banned AI entirely. Part of it is union resistance and broader industry pushback. ",
+      "entities": {
+        "GPE": [
+          "AI"
+        ],
+        "PERSON": [
+          "Audible"
+        ]
+      },
+      "topics": [
+        "ai",
+        "book",
+        "audiobook",
+        "voice",
+        "publisher"
+      ],
+      "entity_subtopics": {
+        "AI": [
+          "publisher",
+          "audible",
+          "ai"
+        ],
+        "Audible": [
+          "publisher",
+          "audible",
+          "ai"
+        ]
+      },
+      "key_phrases": [
+        "i",
+        "ai",
+        "my book",
+        "an audiobook",
+        "my own voice"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "The capabilities exist to do it. ",
+      "entities": {},
+      "topics": [
+        "capability"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "the capabilities",
+        "it"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Exactly. Marc Andreessen wrote a great blog post asking, “How do I know they’re going to ban AI in medicine?” Because they already have. Many areas AI will impact are highly regulated.  Take the Hollywood generative AI example—adopting AI might require laying off unionized workers, which companies may resist. Maybe fresh upstarts in other countries will create AI-native movie studios, but that will take time.  The right approach is probably to integrate AI with existing Hollywood talent, not replace it. There are many highly skilled people in the industry. But how long will that cultural shift take? It may require an entirely new generation.  That’s what I mean by the demand side—changing workflows, using AI assistants regularly. It’s unclear how long that will take. ",
+      "entities": {
+        "PERSON": [
+          "Marc Andreessen"
+        ],
+        "GPE": [
+          "AI",
+          "Hollywood"
+        ],
+        "ORG": [
+          "AI"
+        ]
+      },
+      "topics": [
+        "ai",
+        "hollywood",
+        "marc",
+        "andreessen",
+        "blog"
+      ],
+      "entity_subtopics": {
+        "Marc Andreessen": [
+          "marc",
+          "andreessen",
+          "blog"
+        ],
+        "AI": [
+          "demand",
+          "workflow",
+          "ai"
+        ],
+        "Hollywood": [
+          "approach",
+          "ai",
+          "hollywood"
+        ]
+      },
+      "key_phrases": [
+        "ai",
+        "that",
+        "it",
+        "i",
+        "they"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "Having a co-pilot for everything you do—it feels like… ",
+      "entities": {},
+      "topics": [
+        "co",
+        "pilot"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "a co",
+        "-",
+        "pilot",
+        "everything",
+        "you"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Yes, and maybe that can be solved with interfaces. Then there’s the policy side. The resistance I’m describing is already becoming enshrined in law. This is playing out at multiple levels—in courts, state legislatures, and bills like California’s AI bill. There are also ongoing lawsuits around copyright.  I believe this will ultimately be resolved in Congress. AI is such a major issue, affecting tens of millions of jobs. It’s beyond something that will be left entirely to free markets. ",
+      "entities": {
+        "GPE": [
+          "AI",
+          "California"
+        ],
+        "ORG": [
+          "Congress"
+        ],
+        "MONEY": [
+          "tens of millions"
+        ]
+      },
+      "topics": [
+        "bill",
+        "ai",
+        "interface",
+        "policy",
+        "resistance"
+      ],
+      "entity_subtopics": {
+        "California": [
+          "bill",
+          "level",
+          "court"
+        ],
+        "Congress": [
+          "congress"
+        ],
+        "AI": [
+          "ai",
+          "issue",
+          "ten"
+        ],
+        "tens of millions": [
+          "ai",
+          "issue",
+          "ten"
+        ]
+      },
+      "key_phrases": [
+        "that",
+        "i",
+        "this",
+        "interfaces",
+        "the policy side"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "It won’t just play out through court decisions. ",
+      "entities": {},
+      "topics": [
+        "court",
+        "decision"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "it",
+        "court decisions"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Exactly. The copyright issue is a good example. Right now, the fundamental legal question is: When an AI system is trained on a piece of data, is it copying that data or learning from it? ",
+      "entities": {
+        "GPE": [
+          "AI"
+        ]
+      },
+      "topics": [
+        "datum",
+        "copyright",
+        "issue",
+        "example",
+        "question"
+      ],
+      "entity_subtopics": {
+        "AI": [
+          "datum",
+          "question",
+          "ai"
+        ]
+      },
+      "key_phrases": [
+        "it",
+        "the copyright issue",
+        "a good example",
+        "the fundamental legal question",
+        "an ai system"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "That’s a fundamental question across different media right now. ",
+      "entities": {},
+      "topics": [
+        "question",
+        "medium"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "that",
+        "a fundamental question",
+        "different media"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "That’s right.  What drives consumer adoption of AI?",
+      "entities": {
+        "GPE": [
+          "AI"
+        ]
+      },
+      "topics": [
+        "consumer",
+        "adoption",
+        "ai"
+      ],
+      "entity_subtopics": {
+        "AI": [
+          "consumer",
+          "adoption",
+          "ai"
+        ]
+      },
+      "key_phrases": [
+        "that",
+        "what",
+        "consumer adoption",
+        "ai"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Five years from now, a federal judge could decide that philosophical question, or more likely, there will be congressional legislation—some compromise between media and tech industries—that creates incentives for creators while allowing AI systems to exist. That will take a long time to play out.  When will AI be allowed in medicine and finance? Regulated industries make up about 70% of our economy. On the flip side, Waymo’s progress is impressive. ",
+      "entities": {
+        "DATE": [
+          "Five years from now"
+        ],
+        "ORG": [
+          "AI"
+        ],
+        "PERCENT": [
+          "about 70%"
+        ],
+        "WORK_OF_ART": [
+          "Waymo"
+        ]
+      },
+      "topics": [
+        "industry",
+        "ai",
+        "year",
+        "judge",
+        "question"
+      ],
+      "entity_subtopics": {
+        "Five years from now": [
+          "year",
+          "judge",
+          "question"
+        ],
+        "AI": [
+          "year",
+          "judge",
+          "question"
+        ],
+        "about 70%": [
+          "industry",
+          "economy"
+        ],
+        "Waymo": [
+          "waymo",
+          "progress"
+        ]
+      },
+      "key_phrases": [
+        "that",
+        "a federal judge",
+        "that philosophical question",
+        "congressional legislation",
+        "some compromise"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "It turns out it’s 7 to 10 times safer than a human driver, with millions of miles of data to prove it. ",
+      "entities": {
+        "CARDINAL": [
+          "10",
+          "7"
+        ],
+        "QUANTITY": [
+          "millions of miles"
+        ]
+      },
+      "topics": [
+        "time",
+        "driver",
+        "million",
+        "mile",
+        "datum"
+      ],
+      "entity_subtopics": {
+        "7": [
+          "time",
+          "driver",
+          "million"
+        ],
+        "10": [
+          "time",
+          "driver",
+          "million"
+        ],
+        "millions of miles": [
+          "time",
+          "driver",
+          "million"
+        ]
+      },
+      "key_phrases": [
+        "it",
+        "a human driver",
+        "millions",
+        "miles",
+        "data"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Maybe that’s the playbook for broader AI adoption.  What is the ideal future state of the internet?",
+      "entities": {},
+      "topics": [
+        "playbook",
+        "ai",
+        "adoption",
+        "state",
+        "internet"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "that",
+        "the playbook",
+        "broader ai adoption",
+        "what",
+        "the ideal future state"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "What does an ideal internet look like? Near-zero cost of creation and distribution, transparent ownership, governance—what does that future look like? ",
+      "entities": {
+        "CARDINAL": [
+          "Near-zero"
+        ]
+      },
+      "topics": [
+        "internet",
+        "cost",
+        "creation",
+        "distribution",
+        "ownership"
+      ],
+      "entity_subtopics": {
+        "Near-zero": [
+          "cost",
+          "creation",
+          "distribution"
+        ]
+      },
+      "key_phrases": [
+        "what",
+        "an ideal internet",
+        "near-zero cost",
+        "creation",
+        "distribution"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "We’re at a crossroads. The original vision of the internet, from the ‘80s and ‘90s, was one that was community-owned and governed, where most of the economic benefits flowed to the edges of the network—not to the intermediaries.  Think of the internet as a network with money flowing through it. In the ‘90s, money flowed to small businesses, innovators, and entrepreneurs. Today, it mostly flows to the middle. ",
+      "entities": {
+        "DATE": [
+          "Today",
+          "the ‘80s and ‘90s",
+          "the ‘90s"
+        ]
+      },
+      "topics": [
+        "internet",
+        "90",
+        "network",
+        "money",
+        "crossroad"
+      ],
+      "entity_subtopics": {
+        "the ‘80s and ‘90s": [
+          "vision",
+          "internet",
+          "80"
+        ],
+        "the ‘90s": [
+          "90",
+          "money",
+          "business"
+        ],
+        "Today": [
+          "today",
+          "middle"
+        ]
+      },
+      "key_phrases": [
+        "the internet",
+        "money",
+        "it",
+        "we",
+        "a crossroads"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "Yeah, $200M in revenue from social networks… ",
+      "entities": {
+        "MONEY": [
+          "$200M"
+        ]
+      },
+      "topics": [
+        "m",
+        "revenue",
+        "network"
+      ],
+      "entity_subtopics": {
+        "$200M": [
+          "m",
+          "revenue",
+          "network"
+        ]
+      },
+      "key_phrases": [
+        "yeah, $200m",
+        "revenue",
+        "social networks"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "The top five internet companies now control more than half of the market cap—possibly more. Money is consolidating at the center. ",
+      "entities": {
+        "CARDINAL": [
+          "five",
+          "more than half"
+        ]
+      },
+      "topics": [
+        "internet",
+        "company",
+        "half",
+        "market",
+        "cap"
+      ],
+      "entity_subtopics": {
+        "five": [
+          "internet",
+          "company",
+          "half"
+        ],
+        "more than half": [
+          "internet",
+          "company",
+          "half"
+        ]
+      },
+      "key_phrases": [
+        "the top five internet companies",
+        "more than half",
+        "the market cap",
+        "money",
+        "the center"
+      ]
+    },
+    {
+      "speaker": "There are two critical issues here",
+      "text": "power and money. One of the core arguments in my book is that these are determined by architecture. The first sentence of the book is: “Your architecture is your destiny.” The architecture you choose dictates control and financial distribution.  We’re nearing a point of no return, where five companies control the internet. These networks have reached massive scale and are now focused on keeping users trapped within their platforms. ",
+      "entities": {
+        "CARDINAL": [
+          "One",
+          "five"
+        ],
+        "ORDINAL": [
+          "first"
+        ]
+      },
+      "topics": [
+        "architecture",
+        "book",
+        "power",
+        "money",
+        "core"
+      ],
+      "entity_subtopics": {
+        "One": [
+          "core",
+          "argument",
+          "book"
+        ],
+        "first": [
+          "sentence",
+          "book",
+          "architecture"
+        ],
+        "five": [
+          "point",
+          "return",
+          "company"
+        ]
+      },
+      "key_phrases": [
+        "power",
+        "money",
+        "the core arguments",
+        "my book",
+        "these"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "They’ve captured all the users, so now they focus on increasing time spent. ",
+      "entities": {},
+      "topics": [
+        "user",
+        "time"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "they",
+        "all the users",
+        "increasing time"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "That’s right. They kicked away the ladder—they climbed it, then removed it for others.  This is why our firm believes so strongly in building new internet services with new architectures using blockchains. It’s crucial for the future of small tech, or little tech, along with open-source AI.  Startups today must pay a giant tax to incumbents just to build competitive services. That prevents them from threatening those incumbents. ",
+      "entities": {
+        "ORG": [
+          "Startups"
+        ],
+        "DATE": [
+          "today"
+        ]
+      },
+      "topics": [
+        "service",
+        "tech",
+        "incumbent",
+        "ladder",
+        "firm"
+      ],
+      "entity_subtopics": {
+        "Startups": [
+          "startup",
+          "today",
+          "tax"
+        ],
+        "today": [
+          "startup",
+          "today",
+          "tax"
+        ]
+      },
+      "key_phrases": [
+        "it",
+        "that",
+        "they",
+        "the ladder",
+        "others"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "We’ve seen this before—platform risk, right? Like when Zynga was built on top of Facebook, and then… ",
+      "entities": {
+        "GPE": [
+          "Zynga"
+        ]
+      },
+      "topics": [
+        "platform",
+        "risk",
+        "zynga",
+        "facebook"
+      ],
+      "entity_subtopics": {
+        "Zynga": [
+          "zynga",
+          "facebook"
+        ]
+      },
+      "key_phrases": [
+        "we",
+        "this",
+        "zynga",
+        "top",
+        "facebook"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Exactly—platform risk means you’re building on quicksand.  Startups need access to distribution, networks, and modern software. Open-source software is critical. These questions will shape the future, which is why we’ve invested so much time and money in them.  The regulatory side is also key. What policies will encourage competition and innovation for little tech? Raising awareness of these issues is important so we don’t back ourselves into a future controlled by four companies.  Much of today’s progress comes from past startup innovation. If we let a few companies consolidate control, we risk losing that innovation. ",
+      "entities": {
+        "ORG": [
+          "Startups"
+        ],
+        "CARDINAL": [
+          "four"
+        ]
+      },
+      "topics": [
+        "innovation",
+        "startup",
+        "software",
+        "future",
+        "company"
+      ],
+      "entity_subtopics": {
+        "Startups": [
+          "startup",
+          "access",
+          "distribution"
+        ],
+        "four": [
+          "awareness",
+          "issue",
+          "future"
+        ]
+      },
+      "key_phrases": [
+        "we",
+        "platform risk",
+        "you",
+        "quicksand",
+        "startups"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "I’m optimistic. The bright side is that through your work and what we’ve done at our firm, little tech is gaining recognition. The importance of new architectures, new infrastructure, and open source is becoming more widely understood. ",
+      "entities": {},
+      "topics": [
+        "work",
+        "tech",
+        "recognition",
+        "importance",
+        "architecture"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "i",
+        "the bright side",
+        "that",
+        "your work",
+        "what"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Yeah, great. ",
+      "entities": {},
+      "topics": [],
+      "entity_subtopics": {},
+      "key_phrases": []
+    },
+    {
+      "speaker": "David George",
+      "text": "This was awesome. Thanks for being here. ",
+      "entities": {},
+      "topics": [
+        "thank"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "this",
+        "thanks"
+      ]
+    },
+    {
+      "speaker": "Chris Dixon",
+      "text": "Thanks for having me. ",
+      "entities": {},
+      "topics": [
+        "thank"
+      ],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "thanks",
+        "me"
+      ]
+    },
+    {
+      "speaker": "David George",
+      "text": "I always love talking to you",
+      "entities": {},
+      "topics": [],
+      "entity_subtopics": {},
+      "key_phrases": [
+        "i",
+        "you"
+      ]
+    }
+  ]
+}

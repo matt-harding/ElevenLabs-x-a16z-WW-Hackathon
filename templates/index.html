@@ -3,32 +3,32 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Local Faster-Whisper STT + OpenAI + Perplexity</title>
-    <link rel="stylesheet" href="/static/style.css" />
+    <title>Podcaster Agent</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body>
     <div id="container">
-        <h1>Local STT Demo (faster-whisper)</h1>
-        <elevenlabs-convai agent-id="9PwbyuJAZ1qOl5IyA2B9"></elevenlabs-convai><script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
+        <h1>Podcaster Agent</h1>
 
-        <div id="controls">
-            <button id="startBtn">Start Recording</button>
-            <button id="stopBtn" disabled>Stop</button>
-            <button id="deepInvestBtn" class="hidden">Deep Investigation</button>
+        <!-- Web Speech API Controls -->
+        <div id="stt-controls">
+            <button id="startSpeechBtn">Start Speech</button>
+            <button id="stopSpeechBtn" disabled>Stop Speech</button>
         </div>
 
-        <div id="status">
-            <h3>Transcript:</h3>
+        <div id="transcripts-container">
+            <h3>Real-Time Transcript:</h3>
             <div id="transcripts"></div>
         </div>
 
-        <div id="perplexityResults">
-            <h3>Perplexity Results:</h3>
-            <div id="resultContent"></div>
+        <div id="analysis-container">
+            <h3>Analysis & Results:</h3>
+            <div id="results"></div>
         </div>
     </div>
 
+    <!-- Load JS -->
     <script src="/static/app.js"></script>
 </body>
 

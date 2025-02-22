@@ -1,161 +1,131 @@
-#!/usr/bin/env python3
+import os
+import openai
+import requests
+from flask import Flask, request, jsonify, render_template
+from dotenv import load_dotenv
 
-import re
-import spacy
-import json
-from collections import defaultdict, Counter
-from knowledge_extender import update_agent_with_file
+load_dotenv()
 
-def extract_frequent_nouns(text, nlp, top_n=5):
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+PERPLEXITY_API_KEY = os.getenv("PERPLEXITY_API_KEY")
+
+app = Flask(__name__)
+openai.api_key = OPENAI_API_KEY
+
+def decide_and_search(user_text: str):
     """
-    Returns a naive list of single-word 'topics' by:
-      1. Processing the text with spaCy to get tokens.
-      2. Checking if each token is a NOUN or PROPN, ignoring stopwords/punctuation.
-      3. Counting frequency of lemma forms.
-      4. Sorting by descending frequency, returning top N.
+    1) Uses OpenAI (o3-mini or similar) to see if the text is 'NOT RELEVANT'
+       or return a short search query (topic).
+    2) If relevant, calls Perplexity with that query to gather deeper info.
+    Returns a dict:
+       {
+         "is_relevant": bool,
+         "query": str,  # short search query from OpenAI
+         "perplexity_result": str or None
+       }
     """
-    doc = nlp(text)
-    freq = defaultdict(int)
-    
-    for token in doc:
-        if token.pos_ in ("NOUN", "PROPN") and not token.is_stop and not token.is_punct:
-            freq[token.lemma_.lower()] += 1
+    result = {
+        "is_relevant": False,
+        "query": "",
+        "perplexity_result": None
+    }
 
-    sorted_terms = sorted(freq.items(), key=lambda x: x[1], reverse=True)
-    return [term for term, _count in sorted_terms[:top_n]]
+    if not user_text.strip():
+        print("[LOG] Received empty user text. Returning early.")
+        return result
 
-def extract_noun_chunk_phrases(text, nlp, top_n=5):
-    """
-    Extract frequent multi-word noun chunks (e.g., 'cloud infrastructure').
-    """
-    doc = nlp(text)
-    chunk_counter = Counter()
+    print(f"[LOG] Received user text for analysis: {user_text}")
 
-    for chunk in doc.noun_chunks:
-        chunk_text = chunk.text.strip().lower()
-        if not chunk_text or len(chunk_text.split()) < 1:
-            continue
-        chunk_counter[chunk_text] += 1
+    # 1) Check relevancy via OpenAI
+    try:
+        print("[LOG] Sending text to OpenAI for relevancy check...")
+        openai_response = openai.ChatCompletion.create(
+            model="o3-mini",  # or "gpt-3.5-turbo" if "o3-mini" is not available
+            messages=[
+                {
+                    "role": "system",
+                    "content": (
+                        "You analyze user text. If it's not relevant, respond with 'NOT RELEVANT'. "
+                        "Otherwise, respond with a short search query capturing the main topic."
+                    )
+                },
+                {
+                    "role": "user",
+                    "content": user_text
+                }
+            ]
+        )
+        content = openai_response.choices[0].message.content.strip()
+        print(f"[LOG] OpenAI response content: {content}")
 
-    most_common = chunk_counter.most_common(top_n)
-    return [phrase for (phrase, _count) in most_common]
-
-def group_entities_by_label(doc):
-    """
-    Collect named entities into a dict: { label: [entities], ... }
-    """
-    from collections import defaultdict
-    entities_by_label = defaultdict(set)
-    for ent in doc.ents:
-        entities_by_label[ent.label_].add(ent.text)
-    
-    return {label: sorted(ents) for label, ents in entities_by_label.items()}
-
-def extract_entity_subtopics(doc, nlp, top_n=3):
-    """
-    For each entity in the doc, gather subtopics from the sentence(s) containing it.
-    Returns something like { "OpenAI": ["research", "investment"], ... }.
-    """
-    entity_subtopics = {}
-    for ent in doc.ents:
-        sentence_texts = []
-        for sent in doc.sents:
-            if ent.start >= sent.start and ent.end <= sent.end:
-                sentence_texts.append(sent.text)
-        
-        context = " ".join(sentence_texts).strip()
-        if context:
-            subtopics = extract_frequent_nouns(context, nlp, top_n=top_n)
-            entity_subtopics[ent.text] = subtopics
-    
-    return entity_subtopics
-
-def main():
-    """
-    1. Read 'transcript.txt' line by line, parse into speaker turns.
-    2. For each turn, run NLP analysis (entities, topics, subtopics, etc.).
-    3. Print results and save them to 'analysis_output.json' for later usage.
-    """
-    # 1) Load spaCy model
-    nlp = spacy.load("en_core_web_sm")
-
-    # 2) Read transcript lines
-    with open("transcript.txt", "r", encoding="utf-8") as f:
-        lines = f.read().splitlines()
-
-    speaker_pattern = re.compile(r'^(.+?):\s*(.*)')
-    turns = []
-    current_speaker = None
-    current_lines = []
-
-    # Build speaker turns
-    for line in lines:
-        line = line.strip()
-        match = speaker_pattern.match(line)
-        if match:
-            # Save the previous chunk if any
-            if current_speaker is not None:
-                turns.append({
-                    "speaker": current_speaker,
-                    "text": " ".join(current_lines)
-                })
-            current_speaker = match.group(1).strip()
-            first_text = match.group(2).strip()
-            current_lines = [first_text] if first_text else []
+        if content.lower().startswith("not relevant"):
+            print("[LOG] OpenAI says NOT RELEVANT.")
+            return result  # is_relevant remains False
         else:
-            if current_speaker is not None:
-                current_lines.append(line)
-            else:
-                # If we haven't seen a speaker yet, label as Unknown
-                if not turns or turns[-1]["speaker"] != "Unknown":
-                    turns.append({"speaker": "Unknown", "text": line})
-                else:
-                    turns[-1]["text"] += " " + line
+            result["is_relevant"] = True
+            result["query"] = content
 
-    # Append the last chunk
-    if current_speaker is not None:
-        turns.append({
-            "speaker": current_speaker,
-            "text": " ".join(current_lines)
-        })
+    except Exception as e:
+        print("[ERROR] OpenAI error:", e)
+        return result
 
-    # Analyze each turn
-    for turn in turns:
-        chunk_text = turn["text"].strip()
-        if not chunk_text:
-            continue
-        doc = nlp(chunk_text)
-        turn["entities"] = group_entities_by_label(doc)
-        turn["topics"] = extract_frequent_nouns(chunk_text, nlp, top_n=5)
-        turn["entity_subtopics"] = extract_entity_subtopics(doc, nlp, top_n=3)
-        turn["key_phrases"] = extract_noun_chunk_phrases(chunk_text, nlp, top_n=5)
+    # 2) If relevant, call Perplexity
+    if result["is_relevant"] and PERPLEXITY_API_KEY:
+        print(f"[LOG] Query is relevant. Now calling Perplexity with query: {result['query']}")
+        from openai import OpenAI
+        client = OpenAI(api_key=PERPLEXITY_API_KEY, base_url="https://api.perplexity.ai")
 
-    # Print results
-    print("\n=== Transcript Analysis ===\n")
-    for turn in turns:
-        speaker = turn["speaker"]
-        text = turn["text"].strip()
-        if not text:
-            continue
-        
-        print(f"--- Speaker: {speaker} ---")
-        print(f"Text: {text}\n")
-        print(f"Entities: {turn['entities']}")
-        print(f"Topics (single-word): {turn['topics']}")
-        print(f"Entity Subtopics: {turn['entity_subtopics']}")
-        print(f"Key Phrases (multi-word): {turn['key_phrases']}")
-        print("-" * 50)
+        messages = [
+            {
+                "role": "system",
+                "content": "You are an assistant that retrieves relevant research resources for the user's query."
+            },
+            {
+                "role": "user",
+                "content": result["query"]
+            }
+        ]
+        try:
+            px_response = client.chat.completions.create(
+                model="sonar-pro",  # or whichever Perplexity model is correct
+                messages=messages
+            )
+            perplexity_text = px_response.choices[0].message.content.strip()
+            print(f"[LOG] Perplexity response content: {perplexity_text}")
+            result["perplexity_result"] = perplexity_text
+        except Exception as e:
+            print("[ERROR] Perplexity call error:", e)
+            # We won't override result, just show the error in logs
 
-    # Save the analysis output to JSON
-    file_name = "analysis_output.json"
-    analysis_data = {"turns": turns}
-    with open(file_name, "w", encoding="utf-8") as outfile:
-        json.dump(analysis_data, outfile, indent=2, ensure_ascii=False)
+    return result
 
-    print("\nAnalysis saved to 'analysis_output.json'.\n")
+@app.route("/")
+def index():
+    return render_template("index.html")
 
+@app.route("/api/process-text", methods=["POST"])
+def process_text():
+    """
+    Expects JSON: { "text": "..." }
+    1) Decides if it's relevant via OpenAI
+    2) If relevant, calls Perplexity
+    3) Returns JSON with all needed fields
+    """
+    data = request.json
+    user_text = data.get("text", "").strip()
+    print(f"[LOG] /api/process-text called with text: {user_text}")
 
-    update_agent_with_file(file_name)
+    analysis = decide_and_search(user_text)
+
+    # Our final response
+    response_json = {
+        "original_text": user_text,
+        "is_relevant": analysis["is_relevant"],
+        "query": analysis["query"],
+        "perplexity_result": analysis["perplexity_result"]
+    }
+    print(f"[LOG] Final response JSON: {response_json}")
+    return jsonify(response_json)
 
 if __name__ == "__main__":
-    main()
+    app.run(debug=True, port=5000)
