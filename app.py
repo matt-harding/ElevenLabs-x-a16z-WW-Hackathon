@@ -28,7 +28,7 @@ def transcribe_audio_with_whisper(audio_path: str) -> str:
     # parts = [segment.text for segment in segments]
     # transcript = " ".join(parts)
     # return transcript.strip()
-    return "Hello"
+    return "Last month, Meta which owns popular social media platforms Facebook and Instagram, sent a stern warning to employees that it was planning to cut roughly 3,600 jobs."
 
 
 def check_relevancy_openai(text: str):
@@ -40,7 +40,7 @@ def check_relevancy_openai(text: str):
         return False, ""
 
     try:
-        response = openai.ChatCompletion.create(
+        response = openai.completions.create(
             model="gpt-3.5-turbo",
             messages=[
                 {
@@ -57,7 +57,9 @@ def check_relevancy_openai(text: str):
                 }
             ]
         )
-        content = response.choices[0].message.content.strip()
+        content = response['choices'][0]['message']['content'].strip()  # Adjusted for new API structure
+        print('CHECKING RELEVANCY')
+        print(content)
         if content.lower().startswith("not relevant"):
             return False, ""
         else:
@@ -65,7 +67,6 @@ def check_relevancy_openai(text: str):
     except Exception as e:
         print("OpenAI relevancy check error:", e)
         return False, ""
-
 
 def call_perplexity(query: str):
     """
@@ -146,12 +147,15 @@ def transcribe_audio():
 
 @app.route("/api/perplexity-search", methods=["POST"])
 def perplexity_search():
+    print('PERPLIXITY!!!')
     data = request.json
     query = data.get("query", "").strip()
     if not query:
         return jsonify({"error": "Empty query"}), 400
 
     result = call_perplexity(query)
+    print('RESULT')
+    print(result)
     if result is None:
         return jsonify({"error": "Perplexity error or missing key"}), 500
 

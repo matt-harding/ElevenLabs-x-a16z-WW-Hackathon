@@ -13,6 +13,7 @@ stopBtn.addEventListener("click", stopRecording);
 deepInvestBtn.addEventListener("click", performDeepInvestigation);
 
 function startRecording() {
+  console.log('RECORDING')
   navigator.mediaDevices.getUserMedia({ audio: true })
     .then(stream => {
       audioChunks = [];
@@ -71,6 +72,7 @@ function stopRecording() {
 }
 
 function performDeepInvestigation() {
+  console.log('DEEP INVESTIGATION');
   if (!relevantQuery.trim()) {
     alert("No relevant query found or it's not relevant!");
     return;
