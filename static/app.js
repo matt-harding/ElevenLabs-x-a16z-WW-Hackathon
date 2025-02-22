@@ -1,29 +1,31 @@
-// -------------- DOM ELEMENTS --------------
+// DOM Elements
 const startSpeechBtn = document.getElementById("startSpeechBtn");
 const stopSpeechBtn = document.getElementById("stopSpeechBtn");
 const transcriptsDiv = document.getElementById("transcripts");
 const resultsDiv = document.getElementById("results");
 
 let recognition = null;
-let finalTranscript = "";
 
-// -------------- EVENT LISTENERS --------------
+// We'll store final recognized segments in an array, each with { text, timestamp }
+let recognizedSegments = [];
+let intervalId = null;  // For our 3-second interval
+
+// Add event listeners
 startSpeechBtn.addEventListener("click", startBrowserSTT);
 stopSpeechBtn.addEventListener("click", stopBrowserSTT);
 
-// -------------- WEB SPEECH API --------------
 function startBrowserSTT() {
   console.log("[CLIENT] Starting browser speech recognition...");
-  // Check for browser support
+
   if (!("webkitSpeechRecognition" in window)) {
     alert("Your browser does not support the Web Speech API. Please use Chrome or Edge.");
     return;
   }
 
-  // Reset transcripts and results
+  // Clear any old data
   transcriptsDiv.textContent = "";
   resultsDiv.textContent = "";
-  finalTranscript = "";
+  recognizedSegments = [];
 
   recognition = new webkitSpeechRecognition();
   recognition.continuous = true;
@@ -31,19 +33,28 @@ function startBrowserSTT() {
   recognition.lang = "en-US";
 
   recognition.onresult = (event) => {
+    let finalSoFar = "";
     let interim = "";
+
+    // Gather recognized speech
     for (let i = event.resultIndex; i < event.results.length; i++) {
       const transcriptChunk = event.results[i][0].transcript;
       if (event.results[i].isFinal) {
-        // Add to final transcript
-        finalTranscript += transcriptChunk + " ";
+        // We got a final segment
+        recognizedSegments.push({
+          text: transcriptChunk.trim(),
+          timestamp: Date.now()
+        });
+        finalSoFar += transcriptChunk + " ";
       } else {
-        // Build an interim transcript
+        // An interim piece
         interim += transcriptChunk;
       }
     }
-    // Show combined text: final + interim
-    transcriptsDiv.textContent = finalTranscript + " [ " + interim + " ]";
+
+    // Show real-time transcript: combine all final + current interim
+    const allFinalText = recognizedSegments.map(seg => seg.text).join(" ");
+    transcriptsDiv.textContent = allFinalText + " [ " + interim + " ]";
   };
 
   recognition.onerror = (event) => {
@@ -52,55 +63,79 @@ function startBrowserSTT() {
 
   recognition.onend = () => {
     console.log("[CLIENT] Speech recognition ended.");
+    // Usually fired when user stops speaking or we call .stop()
   };
 
   recognition.start();
   startSpeechBtn.disabled = true;
   stopSpeechBtn.disabled = false;
+
+  // Start checking every 3 seconds for new segments
+  intervalId = setInterval(() => {
+    checkLast3Seconds();
+  }, 3000);
 }
 
 function stopBrowserSTT() {
   console.log("[CLIENT] Stopping speech recognition...");
+
   if (recognition) {
     recognition.stop();
     recognition = null;
   }
-  stopSpeechBtn.disabled = true;
   startSpeechBtn.disabled = false;
+  stopSpeechBtn.disabled = true;
 
-  // Clean up the final transcript text
-  finalTranscript = finalTranscript.trim();
-  transcriptsDiv.textContent = finalTranscript;
-
-  if (finalTranscript) {
-    console.log("[CLIENT] Sending final transcript to server:", finalTranscript);
-    resultsDiv.textContent = "Analyzing text with OpenAI + Perplexity...";
-
-    fetch("/api/process-text", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text: finalTranscript })
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("[CLIENT] Received response from server:", data);
-        if (!data.is_relevant) {
-          resultsDiv.textContent = "NOT RELEVANT";
-          return;
-        }
-
-        // If relevant, show the query and results from Perplexity
-        const query = data.query;
-        const perplexityText = data.perplexity_result || "No Perplexity data";
-
-        resultsDiv.innerHTML = `
-          <p><strong>Relevant Query:</strong> ${query}</p>
-          <p><strong>Perplexity Response:</strong> ${perplexityText}</p>
-        `;
-      })
-      .catch((err) => {
-        console.error("[CLIENT] Error analyzing text:", err);
-        resultsDiv.textContent = "Error analyzing text.";
-      });
+  // Clear the interval
+  if (intervalId) {
+    clearInterval(intervalId);
+    intervalId = null;
   }
+}
+
+// ------------------ EVERY 3 SECONDS: CHECK LAST 3s OF SPEECH ------------------
+function checkLast3Seconds() {
+  if (!recognizedSegments.length) return;
+
+  const now = Date.now();
+  // We'll gather text that arrived in the last 3 seconds
+  let chunkText = "";
+  for (let seg of recognizedSegments) {
+    // If within last 3s
+    if (now - seg.timestamp <= 3000) {
+      chunkText += seg.text + " ";
+    }
+  }
+
+  chunkText = chunkText.trim();
+  if (!chunkText) {
+    // No new final text in the last 3s
+    return;
+  }
+
+  console.log("[CLIENT] Checking chunk (last 3s):", chunkText);
+
+  fetch("/api/process-chunk", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ chunk: chunkText })
+  })
+    .then(res => res.json())
+    .then(data => {
+      console.log("[CLIENT] /api/process-chunk response:", data);
+      if (data.is_relevant) {
+        // Show the relevant query and perplexity result
+        // We'll just append it to "results" so user can see ongoing findings
+        const p = document.createElement("p");
+        p.innerHTML = `
+          <strong>Relevant Query:</strong> ${data.query}<br />
+          <strong>Perplexity:</strong> ${data.perplexity_result || "No data"}
+        `;
+        // Insert at the top or bottom, your choice:
+        resultsDiv.prepend(p);
+      }
+    })
+    .catch(err => {
+      console.error("[CLIENT] Error calling /api/process-chunk:", err);
+    });
 }

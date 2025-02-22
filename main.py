@@ -1,6 +1,5 @@
 import os
 import openai
-import requests
 from flask import Flask, request, jsonify, render_template
 from dotenv import load_dotenv
 
@@ -12,15 +11,51 @@ PERPLEXITY_API_KEY = os.getenv("PERPLEXITY_API_KEY")
 app = Flask(__name__)
 openai.api_key = OPENAI_API_KEY
 
+def call_perplexity(query: str):
+    """
+    Calls Perplexity using the openai library with base_url="https://api.perplexity.ai".
+    Returns the text content or None on error.
+    """
+    if not PERPLEXITY_API_KEY:
+        print("[ERROR] Missing PERPLEXITY_API_KEY.")
+        return None
+
+    from openai import OpenAI
+    client = OpenAI(api_key=PERPLEXITY_API_KEY, base_url="https://api.perplexity.ai")
+
+    messages = [
+        {
+            "role": "system",
+            "content": "You are an assistant that retrieves relevant resources for the user's query."
+        },
+        {
+            "role": "user",
+            "content": query
+        }
+    ]
+
+    try:
+        print(f"[LOG] Sending query to Perplexity: {query}")
+        response = client.chat.completions.create(
+            model="sonar-pro",  # or whichever Perplexity model is correct
+            messages=messages
+        )
+        content = response.choices[0].message.content.strip()
+        print(f"[LOG] Perplexity response: {content}")
+        return content
+    except Exception as e:
+        print("[ERROR] Perplexity call error:", e)
+        return None
+
 def decide_and_search(user_text: str):
     """
-    1) Uses OpenAI (o3-mini or similar) to see if the text is 'NOT RELEVANT'
-       or return a short search query (topic).
-    2) If relevant, calls Perplexity with that query to gather deeper info.
-    Returns a dict:
+    1) Uses OpenAI (o3-mini) to see if user_text is 'NOT RELEVANT' 
+       or produce a short search query capturing the main topic.
+    2) If relevant, calls Perplexity with that query.
+    Returns:
        {
          "is_relevant": bool,
-         "query": str,  # short search query from OpenAI
+         "query": str,
          "perplexity_result": str or None
        }
     """
@@ -30,22 +65,21 @@ def decide_and_search(user_text: str):
         "perplexity_result": None
     }
 
+    # If user text is empty or just whitespace
     if not user_text.strip():
-        print("[LOG] Received empty user text. Returning early.")
+        print("[LOG] Empty user text. No analysis done.")
         return result
 
-    print(f"[LOG] Received user text for analysis: {user_text}")
-
-    # 1) Check relevancy via OpenAI
+    print(f"[LOG] Checking relevancy for text: {user_text}")
     try:
-        print("[LOG] Sending text to OpenAI for relevancy check...")
         openai_response = openai.ChatCompletion.create(
             model="o3-mini",  # or "gpt-3.5-turbo" if "o3-mini" is not available
             messages=[
                 {
                     "role": "system",
                     "content": (
-                        "You analyze user text. If it's not relevant, respond with 'NOT RELEVANT'. "
+                        "You decide if user text is relevant enough to investigate further. "
+                        "If it's not relevant, respond with 'NOT RELEVANT'. "
                         "Otherwise, respond with a short search query capturing the main topic."
                     )
                 },
@@ -56,12 +90,13 @@ def decide_and_search(user_text: str):
             ]
         )
         content = openai_response.choices[0].message.content.strip()
-        print(f"[LOG] OpenAI response content: {content}")
+        print(f"[LOG] OpenAI (o3-mini) responded: {content}")
 
         if content.lower().startswith("not relevant"):
-            print("[LOG] OpenAI says NOT RELEVANT.")
-            return result  # is_relevant remains False
+            print("[LOG] Marked as NOT RELEVANT by OpenAI.")
+            return result
         else:
+            # It's relevant
             result["is_relevant"] = True
             result["query"] = content
 
@@ -69,33 +104,10 @@ def decide_and_search(user_text: str):
         print("[ERROR] OpenAI error:", e)
         return result
 
-    # 2) If relevant, call Perplexity
-    if result["is_relevant"] and PERPLEXITY_API_KEY:
-        print(f"[LOG] Query is relevant. Now calling Perplexity with query: {result['query']}")
-        from openai import OpenAI
-        client = OpenAI(api_key=PERPLEXITY_API_KEY, base_url="https://api.perplexity.ai")
-
-        messages = [
-            {
-                "role": "system",
-                "content": "You are an assistant that retrieves relevant research resources for the user's query."
-            },
-            {
-                "role": "user",
-                "content": result["query"]
-            }
-        ]
-        try:
-            px_response = client.chat.completions.create(
-                model="sonar-pro",  # or whichever Perplexity model is correct
-                messages=messages
-            )
-            perplexity_text = px_response.choices[0].message.content.strip()
-            print(f"[LOG] Perplexity response content: {perplexity_text}")
-            result["perplexity_result"] = perplexity_text
-        except Exception as e:
-            print("[ERROR] Perplexity call error:", e)
-            # We won't override result, just show the error in logs
+    if result["is_relevant"]:
+        px_content = call_perplexity(result["query"])
+        if px_content:
+            result["perplexity_result"] = px_content
 
     return result
 
@@ -103,28 +115,24 @@ def decide_and_search(user_text: str):
 def index():
     return render_template("index.html")
 
-@app.route("/api/process-text", methods=["POST"])
-def process_text():
+@app.route("/api/process-chunk", methods=["POST"])
+def process_chunk():
     """
-    Expects JSON: { "text": "..." }
-    1) Decides if it's relevant via OpenAI
-    2) If relevant, calls Perplexity
-    3) Returns JSON with all needed fields
+    Receives small chunk of text from last 3 seconds of speech:
+        { "chunk": "<some partial transcript>" }
+    Returns JSON with is_relevant, query, perplexity_result (if relevant).
     """
     data = request.json
-    user_text = data.get("text", "").strip()
-    print(f"[LOG] /api/process-text called with text: {user_text}")
+    chunk_text = data.get("chunk", "").strip()
+    print(f"[LOG] /api/process-chunk called. chunk_text={chunk_text}")
 
-    analysis = decide_and_search(user_text)
-
-    # Our final response
+    analysis = decide_and_search(chunk_text)
     response_json = {
-        "original_text": user_text,
         "is_relevant": analysis["is_relevant"],
         "query": analysis["query"],
         "perplexity_result": analysis["perplexity_result"]
     }
-    print(f"[LOG] Final response JSON: {response_json}")
+    print(f"[LOG] Chunk analysis result: {response_json}")
     return jsonify(response_json)
 
 if __name__ == "__main__":
