@@ -4,6 +4,7 @@ import re
 import spacy
 import json
 from collections import defaultdict, Counter
+from knowledge_extender import update_agent_with_file
 
 def extract_frequent_nouns(text, nlp, top_n=5):
     """
@@ -146,11 +147,15 @@ def main():
         print("-" * 50)
 
     # Save the analysis output to JSON
+    file_name = "analysis_output.json"
     analysis_data = {"turns": turns}
-    with open("analysis_output.json", "w", encoding="utf-8") as outfile:
+    with open(file_name, "w", encoding="utf-8") as outfile:
         json.dump(analysis_data, outfile, indent=2, ensure_ascii=False)
 
     print("\nAnalysis saved to 'analysis_output.json'.\n")
+
+
+    update_agent_with_file(file_name)
 
 if __name__ == "__main__":
     main()
