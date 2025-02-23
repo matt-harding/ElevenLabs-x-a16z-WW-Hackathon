@@ -27,3 +27,17 @@ h1 {
     background: #f8f8f8;
     white-space: pre-wrap;
 }
+
+/* New style for the textarea so it's wider and more readable. 
+   Adjust as needed. */
+#perplexityPrompt {
+    width: 100%;
+    /* Control how tall the box appears, in combination with rows="6" */
+    min-height: 120px;
+    padding: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    resize: vertical;
+    /* allows user to drag-resize if desired */
+}
