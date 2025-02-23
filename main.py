@@ -6,22 +6,24 @@ from dotenv import load_dotenv
 load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+if not OPENAI_API_KEY:
+    raise ValueError("Missing OPENAI_API_KEY in environment variables (.env).")
 
 app = Flask(__name__)
+
+# Set the API key
 openai.api_key = OPENAI_API_KEY
 
 def analyze_text_chunk(chunk_text: str) -> dict:
     """
-    Sends chunk_text to a specialized OpenAI model (>=1.0.0) 
-    to produce a single-sentence prompt or 'NOT RELEVANT'.
-
+    Sends chunk_text to 'gpt-4o' to produce a single-sentence prompt or 'NOT RELEVANT'.
     - If chunk_text is empty, we skip calling the API.
-    - If the model returns an empty response, we fallback to "NO RESPONSE FROM OPENAI".
-    - No temperature or unsupported parameters are included.
+    - If the model returns an empty response, fallback to 'NO RESPONSE FROM OPENAI'.
+    - Includes a fallback to 'gpt-3.5-turbo' if 'gpt-4o' doesn't exist in your org.
     """
     result = {
         "chunk_text": chunk_text.strip(),
-        "model": "o3-mini",  # or "gpt-3.5-turbo" if "o3-mini" isn't available
+        "model": "gpt-4o",  # Attempt to use this custom model
         "messages": [
             {
                 "role": "system",
@@ -39,23 +41,38 @@ def analyze_text_chunk(chunk_text: str) -> dict:
         "openai_response": ""
     }
 
-    # If there's no text, we won't call OpenAI
     if not chunk_text.strip():
+        # No text, just return the default structure
         return result
 
     try:
-        print(f"[LOG] Sending chunk to OpenAI: '{chunk_text}'")
-        # Make sure your model supports max_completion_tokens, remove if not.
-        response = openai.chat.completions.create(
-            model=result["model"],
-            messages=result["messages"],
-            max_completion_tokens=50  # Keep responses short
-        )
+        print(f"[LOG] Sending chunk to OpenAI using model='{result['model']}': '{chunk_text}'")
+        response = None
+        try:
+            # Primary attempt: gpt-4o
+            response = openai.chat.completions.create(
+                model=result["model"],
+                messages=result["messages"],
+                max_tokens=50
+            )
+        except openai.error.InvalidRequestError as e:
+            # If gpt-4o doesn't exist, fallback to gpt-3.5-turbo
+            if "The model `gpt-4o` does not exist" in str(e):
+                print(f"[WARN] {e} - Falling back to 'gpt-3.5-turbo' ...")
+                result["model"] = "gpt-3.5-turbo"
+                response = openai.chat.completions.create(
+                    model=result["model"],
+                    messages=result["messages"],
+                    max_tokens=50
+                )
+            else:
+                # Some other error
+                raise e
 
+        # Extract the assistant's reply
         content = response.choices[0].message.content.strip()
         print(f"[LOG] Raw OpenAI response: '{content}'")
 
-        # If the model returns an empty string, fallback
         if not content:
             content = "NO RESPONSE FROM OPENAI"
 
@@ -86,4 +103,5 @@ def process_chunk():
     })
 
 if __name__ == "__main__":
+    # Run the Flask app on port 5000
     app.run(debug=True, port=5000)

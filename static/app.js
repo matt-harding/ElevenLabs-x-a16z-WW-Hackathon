@@ -1,166 +1,77 @@
-const startSpeechBtn = document.getElementById("startSpeechBtn");
-const stopSpeechBtn = document.getElementById("stopSpeechBtn");
-const transcriptsDiv = document.getElementById("transcripts");
-const resultsDiv = document.getElementById("results");
+let recognizing = false;
+let recognition;
+let transcriptBuffer = "";
 
-let recognizedSegments = [];
-let lastUsedIndex = 0;
-let intervalId = null;
-let keepListening = false;
-let analysisInProgress = false;
-let recognition = null;
+// Check for webkit speech recognition
+if (!('webkitSpeechRecognition' in window)) {
+  alert("Your browser does not support Speech Recognition. Please use Chrome.");
+} else {
+  recognition = new webkitSpeechRecognition();
+  recognition.continuous = true;
+  recognition.interimResults = true;
 
-startSpeechBtn.addEventListener("click", startBrowserSTT);
-stopSpeechBtn.addEventListener("click", stopBrowserSTT);
+  recognition.onstart = () => {
+    recognizing = true;
+    document.getElementById("startSpeechBtn").disabled = true;
+    document.getElementById("stopSpeechBtn").disabled = false;
+    console.log("Speech recognition started");
+  };
 
-function startBrowserSTT() {
-  console.log("[CLIENT] Starting indefinite speech recognition...");
-
-  if (!("webkitSpeechRecognition" in window)) {
-    alert("Your browser doesn't support Web Speech API. Please use Chrome/Edge.");
-    return;
-  }
-
-  transcriptsDiv.textContent = "";
-  resultsDiv.textContent = "";
-  recognizedSegments = [];
-  lastUsedIndex = 0;
-  keepListening = true;
-  analysisInProgress = false;
-
-  recognition = createRecognitionInstance();
-  recognition.start();
-
-  startSpeechBtn.disabled = true;
-  stopSpeechBtn.disabled = false;
-
-  intervalId = setInterval(checkNewSegments, 2000);
-}
-
-function createRecognitionInstance() {
-  const rec = new webkitSpeechRecognition();
-  rec.continuous = true;
-  rec.interimResults = true;
-  rec.lang = "en-US";
-
-  rec.onresult = (event) => {
-    let finalSoFar = "";
-    let interim = "";
-
+  recognition.onresult = (event) => {
+    let interimTranscript = "";
     for (let i = event.resultIndex; i < event.results.length; i++) {
-      const transcriptChunk = event.results[i][0].transcript;
+      let transcript = event.results[i][0].transcript;
       if (event.results[i].isFinal) {
-        recognizedSegments.push({ text: transcriptChunk.trim() });
-        finalSoFar += transcriptChunk + " ";
+        transcriptBuffer += transcript + " ";
       } else {
-        interim += transcriptChunk;
+        interimTranscript += transcript;
       }
     }
-
-    const allFinalText = recognizedSegments.map(s => s.text).join(" ");
-    transcriptsDiv.textContent = allFinalText + " [ " + interim + " ]";
+    // Display the transcripts + interim
+    document.getElementById("transcripts").textContent =
+      transcriptBuffer + "\n[Interim]: " + interimTranscript;
   };
 
-  rec.onerror = (event) => {
-    console.error("[CLIENT] Recognition error:", event.error);
+  recognition.onerror = (e) => {
+    console.log("Speech recognition error: ", e);
   };
 
-  rec.onend = () => {
-    console.log("[CLIENT] Speech recognition ended. keepListening =", keepListening);
-    if (keepListening) {
-      console.log("[CLIENT] Auto-restarting speech recognition...");
-      rec.start();
-    }
+  recognition.onend = () => {
+    recognizing = false;
+    document.getElementById("startSpeechBtn").disabled = false;
+    document.getElementById("stopSpeechBtn").disabled = true;
+    console.log("Speech recognition stopped");
   };
-
-  return rec;
 }
 
-function stopBrowserSTT() {
-  console.log("[CLIENT] Stopping indefinite speech recognition...");
-  keepListening = false;
+// Start speech recognition
+document.getElementById("startSpeechBtn").addEventListener("click", () => {
+  if (!recognizing) recognition.start();
+});
 
-  if (recognition) {
-    recognition.stop();
-    recognition = null;
-  }
+// Stop speech recognition
+document.getElementById("stopSpeechBtn").addEventListener("click", () => {
+  if (recognizing) recognition.stop();
+});
 
-  startSpeechBtn.disabled = false;
-  stopSpeechBtn.disabled = true;
+// Periodically send the collected transcript to the server
+setInterval(() => {
+  if (!transcriptBuffer.trim()) return; // Skip if empty
 
-  if (intervalId) {
-    clearInterval(intervalId);
-    intervalId = null;
-  }
-}
+  const chunk = transcriptBuffer.trim();
+  transcriptBuffer = ""; // Reset local buffer
 
-function checkNewSegments() {
-  if (analysisInProgress) {
-    console.log("[CLIENT] Last analysis still in progress, skipping this cycle...");
-    return;
-  }
-
-  if (lastUsedIndex >= recognizedSegments.length) {
-    console.log("[CLIENT] No new final text to analyze this cycle.");
-    return;
-  }
-
-  const newSegments = recognizedSegments.slice(lastUsedIndex);
-  lastUsedIndex = recognizedSegments.length;
-
-  let chunkText = newSegments.map(s => s.text).join(" ").trim();
-  console.log("[CLIENT] Raw new chunk:", chunkText);
-
-  // limit to 25 words
-  const words = chunkText.split(/\s+/).filter(Boolean);
-  if (words.length > 25) {
-    chunkText = words.slice(-25).join(" ");
-    console.log("[CLIENT] Truncated to last 25 words ->", chunkText);
-  }
-
-  if (!chunkText) {
-    console.log("[CLIENT] chunk is empty after trimming, skip.");
-    return;
-  }
-
-  analysisInProgress = true;
-
-  console.log("[CLIENT] Sending chunk to server:", chunkText);
+  // Call our Flask API
   fetch("/api/process-chunk", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ chunk: chunkText })
+    body: JSON.stringify({ chunk })
   })
-    .then(res => res.json())
-    .then(data => {
-      console.log("[CLIENT] /api/process-chunk response:", data);
-      displayChunkResult(data);
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("OpenAI Response:", data);
+      const resultsDiv = document.getElementById("results");
+      resultsDiv.textContent += `\n[Model: ${data.model}] ${data.openai_response}`;
     })
-    .catch(err => {
-      console.error("[CLIENT] Error calling /api/process-chunk:", err);
-      displayChunkResult({
-        chunk_text: chunkText,
-        openai_response: "Error calling /api/process-chunk"
-      });
-    })
-    .finally(() => {
-      analysisInProgress = false;
-    });
-}
-
-function displayChunkResult(data) {
-  const blockDiv = document.createElement("div");
-  blockDiv.style.border = "1px solid #ccc";
-  blockDiv.style.marginBottom = "10px";
-  blockDiv.style.padding = "10px";
-
-  const chunkPara = document.createElement("p");
-  chunkPara.innerHTML = `<strong>Chunk:</strong> ${data.chunk_text}`;
-  blockDiv.appendChild(chunkPara);
-
-  const respPara = document.createElement("p");
-  respPara.innerHTML = `<strong>One-sentence Prompt:</strong> ${data.openai_response}`;
-  blockDiv.appendChild(respPara);
-
-  resultsDiv.prepend(blockDiv);
-}
+    .catch((err) => console.error("Error calling /api/process-chunk:", err));
+}, 2000);
