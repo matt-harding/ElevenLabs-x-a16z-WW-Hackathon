@@ -9,7 +9,9 @@
 
 <body>
     <div id="container">
-        <h1>Podcast Assistant</h1>
+        <!-- Replace this src with your actual logo image path -->
+        <img id="podcastLogo" src="/static/images/placeholder-logo.png" alt="Podcast Assistant Logo"
+            style="width: 200px; height: auto; margin-bottom: 20px;" />
 
         <div id="stt-controls">
             <button id="startSpeechBtn">Start Speech</button>
@@ -17,18 +19,18 @@
         </div>
 
         <div id="transcripts-container">
-            <h3>Real-Time Transcript:</h3>
+            <h3>Real-Time Transcript (Web Speech API):</h3>
             <div id="transcripts"></div>
         </div>
 
         <div id="analysis-container">
-            <h3>Analysis &amp; Results:</h3>
+            <h3>Analysis &amp; Results (OpenAI GPT-4o):</h3>
             <div id="results"></div>
         </div>
 
         <!-- Perplexity Section with New Labels -->
         <div id="perplexity-container">
-            <h3>Evidence Results</h3>
+            <h3>Evidence Results (Perplexity):</h3>
             <!-- Changed from <input type="text"> to <textarea> for a bigger, multiline box -->
             <textarea id="perplexityPrompt" placeholder="Auto-filled from responses..." rows="6"></textarea>
 
