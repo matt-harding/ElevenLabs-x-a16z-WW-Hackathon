@@ -44,12 +44,8 @@ def update_agent_with_file(file_name: str):
     document['type'] = "file"
 
     # 3. Update agent with the new document
-    if isinstance(agent_details['conversation_config']['agent']['prompt'].get('knowledge_base', None), list):
-        # Append the new document to the list
-        agent_details['conversation_config']['agent']['prompt']['knowledge_base'].append(document)
-    else:
-        # If the list doesn't exist, initialize it and append the document
-        agent_details['conversation_config']['agent']['prompt']['knowledge_base'] = [document]
+    # If the list doesn't exist, initialize it and append the document
+    agent_details['conversation_config']['agent']['prompt']['knowledge_base'] = [document]
 
     # 4. Send the PATCH request to update the agent
     patch_url = f"https://api.elevenlabs.io/v1/convai/agents/{agent_id}"
