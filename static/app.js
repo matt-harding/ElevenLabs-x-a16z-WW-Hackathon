@@ -2,7 +2,7 @@ let recognizing = false;
 let recognition;
 let transcriptBuffer = "";
 
-// Check for speech recognition
+// Check for webkit speech
 if (!('webkitSpeechRecognition' in window)) {
   alert("Your browser does not support Speech Recognition. Please use Chrome.");
 } else {
@@ -43,21 +43,22 @@ if (!('webkitSpeechRecognition' in window)) {
   };
 }
 
-// Start/Stop speech
+// Start speech
 document.getElementById("startSpeechBtn").addEventListener("click", () => {
   if (!recognizing) recognition.start();
 });
 
+// Stop speech
 document.getElementById("stopSpeechBtn").addEventListener("click", () => {
   if (recognizing) recognition.stop();
 });
 
-// Periodically send transcripts to OpenAI route
+// Periodically send the transcripts to /api/process-chunk
 setInterval(() => {
   if (!transcriptBuffer.trim()) return;
 
   const chunk = transcriptBuffer.trim();
-  transcriptBuffer = "";
+  transcriptBuffer = ""; // reset local buffer
 
   fetch("/api/process-chunk", {
     method: "POST",
@@ -67,27 +68,32 @@ setInterval(() => {
     .then(res => res.json())
     .then(data => {
       console.log("OpenAI (gpt-4o) Response:", data);
+      // Show it in #results
       const resultsDiv = document.getElementById("results");
       resultsDiv.textContent += `\n[Model: ${data.model}] ${data.openai_response}`;
+
+      // *** Automatically populate the Perplexity prompt input with the new GPT response ***
+      const perplexityPrompt = document.getElementById("perplexityPrompt");
+      perplexityPrompt.value = data.openai_response;
+
     })
     .catch(err => console.error("Error calling /api/process-chunk:", err));
 }, 2000);
 
-// ---------------------------------------------
-// Perplexity Integration (Non-Streaming)
-// ---------------------------------------------
+// -------------------------------------------
+// Perplexity Integration (non-streaming)
+// -------------------------------------------
 const perplexityChatBtn = document.getElementById("perplexityChatBtn");
-const perplexityPrompt = document.getElementById("perplexityPrompt");
 const perplexityOutput = document.getElementById("perplexityOutput");
 
 perplexityChatBtn.addEventListener("click", () => {
-  const prompt = perplexityPrompt.value.trim();
+  const prompt = document.getElementById("perplexityPrompt").value.trim();
   if (!prompt) {
-    perplexityOutput.textContent = "Please enter a question before clicking send!";
+    perplexityOutput.textContent = "No prompt to investigate.";
     return;
   }
 
-  perplexityOutput.textContent = "Loading Perplexity response...";
+  perplexityOutput.textContent = "Investigating with Perplexity...";
 
   fetch("/api/perplexity-chat", {
     method: "POST",
@@ -99,7 +105,6 @@ perplexityChatBtn.addEventListener("click", () => {
       if (data.error) {
         perplexityOutput.textContent = "Error: " + data.error;
       } else {
-        // Show the Perplexity text
         perplexityOutput.textContent = data.perplexity_response;
       }
     })
@@ -108,4 +113,3 @@ perplexityChatBtn.addEventListener("click", () => {
       console.error(err);
     });
 });
-

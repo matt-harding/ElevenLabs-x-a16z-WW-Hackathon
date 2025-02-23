@@ -11,29 +11,26 @@
     <div id="container">
         <h1>Podcast Assistant</h1>
 
-        <!-- Existing speech controls -->
         <div id="stt-controls">
             <button id="startSpeechBtn">Start Speech</button>
             <button id="stopSpeechBtn" disabled>Stop Speech</button>
         </div>
 
-        <!-- Transcripts from speech recognition -->
         <div id="transcripts-container">
             <h3>Real-Time Transcript:</h3>
             <div id="transcripts"></div>
         </div>
 
-        <!-- GPT analysis results (every 2 seconds) -->
         <div id="analysis-container">
             <h3>Analysis &amp; Results (OpenAI GPT-4o):</h3>
             <div id="results"></div>
         </div>
 
-        <!-- New Perplexity Chat Section -->
+        <!-- Perplexity Section with New Labels -->
         <div id="perplexity-container">
-            <h3>Chat with Perplexity:</h3>
-            <input type="text" id="perplexityPrompt" placeholder="Ask Perplexity a question..." />
-            <button id="perplexityChatBtn">Send</button>
+            <h3>Evidence Results</h3>
+            <input type="text" id="perplexityPrompt" placeholder="Auto-filled from GPT responses..." />
+            <button id="perplexityChatBtn">Investigate</button>
             <div id="perplexityOutput"
                 style="margin-top:10px; border:1px solid #ccc; padding:10px; background:#f8f8f8; min-height:50px;">
             </div>
@@ -41,6 +38,8 @@
     </div>
 
     <script src="/static/app.js"></script>
+
+
     <elevenlabs-convai agent-id="9PwbyuJAZ1qOl5IyA2B9"></elevenlabs-convai>
     <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
 </body>
