@@ -1,0 +1,21 @@
+OpenAI has announced plans to release a new model called GPT-5, which will integrate many of their existing technologies into a unified offering[1]. Here are the key details:
+
+- GPT-5 will incorporate capabilities from OpenAI's previously planned o3 model, which has now been effectively canceled as a standalone release[1].
+
+- It will integrate features like voice, canvas, search, and deep research capabilities into a single model[1].
+
+- The goal is to simplify OpenAI's product offerings and create a more unified AI system that can handle a wide range of tasks[1][4].
+
+- GPT-5 will be available through ChatGPT and OpenAI's API[1].
+
+- OpenAI plans to offer unlimited chat access to GPT-5 at a "standard intelligence setting," subject to certain usage thresholds[1][4].
+
+- Different tiers of access will be available:
+  - ChatGPT Plus subscribers will have access to a "higher level of intelligence"
+  - ChatGPT Pro subscribers will be able to use an "even higher level of intelligence"[1][4]
+
+- Before GPT-5 launches, OpenAI will release GPT-4.5 (code-named "Orion") in the coming weeks. This will be their last "non-chain-of-thought" model[1][4].
+
+- The release of GPT-5 represents a shift towards more advanced reasoning-based architectures that aim to improve reliability in complex domains like math and physics[4].
+
+This announcement reflects OpenAI's strategy to unify their AI technologies and simplify their product lineup, potentially making their AI systems more accessible and powerful for users across different applications.

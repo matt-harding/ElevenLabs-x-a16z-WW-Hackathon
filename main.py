@@ -3,6 +3,7 @@ import openai
 from openai import OpenAI  # For Perplexity
 from flask import Flask, request, jsonify, render_template
 from dotenv import load_dotenv
+from knowledge_extender import update_agent_with_file
 
 load_dotenv()
 
@@ -113,6 +114,23 @@ def process_chunk():
     })
 
 
+def save_response_to_file(content: str) -> str:
+    """
+    Saves the response content to a timestamped text file and returns the filename.
+    """
+    from datetime import datetime
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"perplexity_response_{timestamp}.txt"
+    
+    try:
+        with open(filename, "w", encoding="utf-8") as f:
+            f.write(content)
+        return filename
+    except Exception as e:
+        print(f"[ERROR] Failed to save response to file: {e}")
+        return ""
+
+
 @app.route("/api/perplexity-chat", methods=["POST"])
 def perplexity_chat():
     """
@@ -143,9 +161,17 @@ def perplexity_chat():
             model="sonar-pro",
             messages=messages,
         )
-        # Typically, get text from response.choices[0].message.content
         content = response.choices[0].message.content
-        return jsonify({"perplexity_response": content})
+        
+        # Save the response to a file
+        filename = save_response_to_file(content)
+
+        update_agent_with_file(filename)
+        
+        return jsonify({
+            "perplexity_response": content,
+            "saved_to_file": filename
+        })
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
